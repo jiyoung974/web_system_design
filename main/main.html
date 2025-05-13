@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safety 365</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #003366;
+      --accent-color: #CC0000;
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --border-color: #444444;
+      --circle-overlay: rgba(0, 0, 0, 0.4);
+      --banner-overlay: rgba(0, 0, 0, 0.6);
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .top-header {
+      background-color: white;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-header a {
+      color: var(--text-color);
+      font-size: 0.9rem;
+      margin-left: 10px;
+      text-decoration: none;
+    }
+
+    .main-nav {
+      background-color: var(--primary-color);
+    }
+    .main-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+    .main-nav .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background-image: url('your-banner-image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: white;
+    }
+    .hero .overlay-box {
+      background-color: var(--banner-overlay);
+      padding: 2rem;
+      margin-left: 5%;
+      max-width: 400px;
+      border-radius: 4px;
+    }
+    .hero h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+   .circle-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      flex-wrap: wrap;
+    }
+
+    .circle-button {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      border: 4px solid var(--border-color);
+      cursor: pointer;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .circle-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .circle-button::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: var(--circle-overlay);
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 4px 0;
+    }
+
+    .circle-button:hover {
+      transform: scale(1.05);
+    }
+
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    .btn-accent {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+    }
+    .btn-accent:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Header -->
+  <div class="top-header">
+    <img src="logo_ready_green.png" alt="Ready Logo" style="height: 36px;">
+    <div>
+      <a href="#">소개</a>
+      <a href="#">문의하기</a>
+    </div>
+  </div>
+
+  <!-- Main Nav -->
+  <nav class="navbar navbar-expand-lg main-nav px-4">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav w-100 d-flex justify-content-evenly">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">재난정보</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">태풍</a></li>
+              <li><a class="dropdown-item" href="#">지진</a></li>
+              <li><a class="dropdown-item" href="#">황사</a></li>
+              <li><a class="dropdown-item" href="#">산불</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">대피소 안내</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">구호물품</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">뉴스 & 정보</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">퀴즈</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">기상청</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <div class="hero">
+    <div class="overlay-box">
+      <h1>재난대비, 지금 준비하세요.</h1>
+      <p>재난은 언제든 발생할 수 있습니다. 사전에 미리 대비하세요.</p>
+      <a href="#" class="btn btn-accent fw-bold mt-2">구호물품 사러가기</a>
+    </div>
+  </div>
+
+  <!-- Circular Buttons -->
+<div class="circle-container">
+  <div class="circle-button" data-label="태풍">
+    <img src="태풍.jpg" alt="태풍">
+  </div>
+  <div class="circle-button" data-label="지진">
+    <img src="지진.jpg" alt="지진">
+  </div>
+  <div class="circle-button" data-label="황사">
+    <img src="황사.jpg" alt="황사">
+  </div>
+  <div class="circle-button" data-label="산불">
+    <img src="산불.jpg" alt="산불">
+  </div>
+</div>
+
+
+<!-- 뉴스 기사 영역 -->
+<div class="container my-5">
+  <h3 class="mb-4 text-center">실시간 뉴스</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- 카드 1: SBS -->
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://img.sbs.co.kr/newimg/news/20240312/20240312192507522_w.jpg" class="card-img-top" alt="SBS 뉴스 이미지">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008080530" target="_blank">
+              내일 전국 강풍·황사…“외출 자제”
+            </a>
+          </h5>
+          <p class="card-text text-muted">SBS 뉴스</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 카드 2: 데일리대구경북 -->
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://cdn.dailydgnews.com/news/photo/202403/216645_113358_2542.jpg" class="card-img-top" alt="데일리대구경북 뉴스 이미지">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="http://www.dailydgnews.com/news/article.html?no=216645" target="_blank">
+              경북도, 재난안전 특별 전시회 개최
+            </a>
+          </h5>
+          <p class="card-text text-muted">데일리대구경북</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 카드 3: 조선일보 -->
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://image.chosun.com/sitedata/image/202503/12/2025031201047_0.jpg" class="card-img-top" alt="조선일보 뉴스 이미지">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="https://www.chosun.com/national/transport-environment/2025/03/12/NISU7VVNRRGXZFIE27QK4C6MK4/" target="_blank">
+              대중교통 재난 대응 시뮬레이션 도입
+            </a>
+          </h5>
+          <p class="card-text text-muted">조선일보</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+  <!-- Footer -->
+  <footer>
+    경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
