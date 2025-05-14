@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>산불 - Safety 365</title>
+  <title>태풍 - Safety 365</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     :root {
@@ -12,7 +12,6 @@
       --bg-color: #f8f9fa;
       --text-color: #212529;
       --highlight: #e6f0ff;
-      --yellow-highlight: rgba(255, 243, 176, 0.6); /* 반투명 노란색 */
     }
 
     body {
@@ -48,7 +47,7 @@
     }
 
     .hero-banner {
-      background-image: url('fire1.png');
+      background-image: url('../storm1.png');
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -90,9 +89,10 @@
       border-right: 2px solid #dee2e6;
     }
 
-    .sidebar .btn {
+    .sidebar a {
       margin-bottom: 1.5rem;
-      width: 100%;
+      display: block;
+      text-decoration: none;
     }
 
     .content {
@@ -109,34 +109,17 @@
 
     .info-box {
       background-color: var(--highlight);
-      padding: 2.5rem;
+      padding: 3rem;
       border-radius: 10px;
+      background-image: url('다운로드.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .info-box p {
+    .form-check-label {
       font-size: 1.2rem;
-      line-height: 2;
-      margin-bottom: 2.5rem;
-      letter-spacing: -0.3px; /* 자간 좁힘 */
-    }
-
-    .emoji {
-      font-size: 1.4rem;
-      margin-right: 10px;
-    }
-
-    .highlight {
-      color: var(--accent-color);
-      font-weight: bold;
-      font-size: 1.35rem;
-    }
-
-    .highlight-yellow {
-      background-color: var(--yellow-highlight);
-      padding: 0 4px;
-      border-radius: 4px;
-      font-weight: bold;
     }
 
     footer {
@@ -147,17 +130,12 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
-    .highlight-pink {
-    background-color: rgba(241, 187, 255, 0.214);
-    padding: 0 4px;
-    font-weight: bold;
-  }
-</style>
+  </style>
 </head>
 <body>
   <!-- Top Header -->
   <div class="top-header d-flex justify-content-center align-items-center flex-column">
-    <a href="../main/main.html"><img src="로고.png" alt="Ready Logo" /></a>
+    <a href="../../main/main.html"><img src="../로고.png" alt="Logo" /></a>
   </div>
 
   <!-- Main Nav -->
@@ -171,49 +149,71 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
             <ul class="dropdown-menu">
-  <li><a class="dropdown-item" href="storm.html">태풍</a></li>
-  <li><a class="dropdown-item" href="earthquake.html">지진</a></li>
-  <li><a class="dropdown-item" href="dust.html">황사</a></li>
-  <li><a class="dropdown-item" href="fire.html">산불</a></li>
-</ul>
+              <li><a class="dropdown-item" href="../storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="../earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="../dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="../fire.html">산불</a></li>
+            </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">대피소 안내</a></li>
           <li class="nav-item"><a class="nav-link" href="#">구호물품</a></li>
           <li class="nav-item"><a class="nav-link" href="#">뉴스 & 정보</a></li>
           <li class="nav-item"><a class="nav-link" href="#">퀴즈</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener noreferrer">기상청</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank">기상청</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- 배경 이미지 영역 -->
+  <!-- Hero Banner -->
   <div class="hero-banner">
-    <div class="hero-text">산불</div>
+    <div class="hero-text">태풍</div>
   </div>
 
-  <!-- 태풍 상세 UI 영역 -->
+  <!-- Content Area -->
   <div class="container-custom">
-    <!-- 왼쪽 세부 메뉴 -->
     <div class="sidebar">
-      <button class="btn btn-outline-primary">산불 대비</button>
-      <button class="btn btn-outline-secondary">발생 시 행동 요령</button>
-      <a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/acd/frfireUserList.html?menuSeq=98" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
+      <a class="btn btn-outline-primary" href="#">태풍 대비</a>
+      <a class="btn btn-outline-secondary" href="../behavior/stormb.html">발생 시 행동 요령</a>
+      <a class="btn btn-outline-danger" href="https://www.weather.go.kr/w/typhoon/ko/weather/typhoon_02.jsp" target="_blank">실시간 정보</a>
     </div>
 
-    <!-- 오른쪽 설명 영역 -->
     <div class="content">
-      <h2>산불이란? 🔥</h2>
+      <h2 class="mt-5">태풍 대비 체크리스트 📖</h2>
       <div class="info-box">
-        <p><span class="emoji">📌</span><strong class="highlight">산불</strong>은 산림에서 발생하는 화재로, <span class="highlight-yellow">건조한 기후</span>와 <span class="highlight-yellow">인위적 요인</span>에 의해 주로 발생한다.</p>
-        <p><span class="emoji">📌</span>산불은 <span class="highlight-yellow">산림 생태계 파괴</span>, <span class="highlight-yellow">주거지 위협</span>, <span class="highlight-yellow">대기 오염</span> 등 다양한 피해를 초래한다.</p>
-        <p><span class="emoji">📌</span><span class="highlight-yellow">봄</span>과 <span class="highlight-yellow">가을</span>은 기온 상승과 낮은 습도로 산불 위험이 특히 높다.</p>
-        <p><span class="emoji">📌</span>예방을 위해 <span class="highlight-pink">인화성 물질 반입 금지</span>, <span class="highlight-pink">불씨 방치 금지</span>, <span class="highlight-pink">산림 인근 소각 행위 금지</span>가 강조된다.</p>
-        </div>
+        <form id="checklist-form">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="1" id="check1">
+            <label class="form-check-label" for="check1">창문에 테이프를 붙여 파손을 방지한다</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="2" id="check2">
+            <label class="form-check-label" for="check2">비상식량과 생수를 미리 확보해둔다</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="3" id="check3">
+            <label class="form-check-label" for="check3">배수구와 문틈 주변을 점검해 침수에 대비한다</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="4" id="check4">
+            <label class="form-check-label" for="check4">손전등, 휴대용 라디오 등 비상물품을 준비한다</label>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
-  <!-- Footer -->
+  <script>
+    const checks = document.querySelectorAll('input[type="checkbox"]');
+    checks.forEach((check, i) => {
+      const saved = localStorage.getItem('typhoon_check_' + i);
+      if (saved === 'true') check.checked = true;
+      check.addEventListener('change', () => {
+        localStorage.setItem('typhoon_check_' + i, check.checked);
+      });
+    });
+  </script>
+
   <footer>
     경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침
   </footer>
