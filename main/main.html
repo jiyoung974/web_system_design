@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Safety 365</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     :root {
       --primary-color: #003366;
@@ -29,25 +26,18 @@
     .top-header {
       background-color: white;
       padding: 1rem 0;
-      text-align: center;
-      margin-bottom: 1rem;  /* ✅ 요거 추가하면 됨! */
-    }
-
-
-    .top-header a {
-      color: var(--text-color);
-      font-size: 0.9rem;
-      margin-left: 10px;
-      text-decoration: none;
+      margin-bottom: 1rem;
     }
 
     .main-nav {
       background-color: var(--primary-color);
     }
+
     .main-nav .nav-link {
       color: white !important;
       font-weight: 500;
     }
+
     .main-nav .nav-link:hover {
       text-decoration: underline;
     }
@@ -151,32 +141,23 @@
   </style>
 </head>
 <body>
-  <!-- Top Header -->
-  <div class="top-header">
-    <img src="로고.png" alt="Ready Logo" style="height: 60px" />
+  <!-- Top Header (중앙 정렬 + 새로고침 기능) -->
+  <div class="top-header d-flex justify-content-center align-items-center flex-column">
+    <a href="#" onclick="location.reload(); return false;">
+      <img src="로고.png" alt="Logo" style="height: 60px;" />
+    </a>
   </div>
 
   <!-- Main Nav -->
   <nav class="navbar navbar-expand-lg main-nav px-4">
     <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainNavbar"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav w-100 d-flex justify-content-evenly">
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              >재난정보</a
-            >
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="../disaster/storm.html">태풍</a></li>
               <li><a class="dropdown-item" href="../disaster/earthquake.html">지진</a></li>
@@ -203,7 +184,7 @@
     </div>
   </div>
 
-  <!-- 본문 영역 (간격 통일용 wrapper 추가됨) -->
+  <!-- 본문 영역 -->
   <div class="main-content">
     <!-- Circular Buttons -->
     <div class="circle-container">
@@ -232,7 +213,7 @@
         <div class="label-text">황사</div>
       </div>
       <div class="circle-button-wrapper">
-        <a href="../disaster/dust.html">
+        <a href="../disaster/fire.html">
           <div class="circle-button">
             <img src="산불.jpg" alt="산불" />
           </div>
@@ -241,23 +222,16 @@
       </div>
     </div>
 
-    <!-- 뉴스 기사 영역 -->
+    <!-- 뉴스 영역 -->
     <div class="container my-5">
       <h3 class="mb-4 text-center">실시간 뉴스</h3>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card h-100">
-            <img
-              src="https://img.sbs.co.kr/newimg/news/20240312/20240312192507522_w.jpg"
-              class="card-img-top"
-              alt="SBS 뉴스 이미지"
-            />
+            <img src="https://img.sbs.co.kr/newimg/news/20240312/20240312192507522_w.jpg" class="card-img-top" alt="SBS 뉴스 이미지" />
             <div class="card-body">
               <h5 class="card-title">
-                <a
-                  href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008080530"
-                  target="_blank"
-                >
+                <a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008080530" target="_blank">
                   내일 전국 강풍·황사…“외출 자제”
                 </a>
               </h5>
@@ -267,17 +241,10 @@
         </div>
         <div class="col">
           <div class="card h-100">
-            <img
-              src="https://cdn.dailydgnews.com/news/photo/202403/216645_113358_2542.jpg"
-              class="card-img-top"
-              alt="데일리대구경북 뉴스 이미지"
-            />
+            <img src="https://cdn.dailydgnews.com/news/photo/202403/216645_113358_2542.jpg" class="card-img-top" alt="데일리대구경북 뉴스 이미지" />
             <div class="card-body">
               <h5 class="card-title">
-                <a
-                  href="http://www.dailydgnews.com/news/article.html?no=216645"
-                  target="_blank"
-                >
+                <a href="http://www.dailydgnews.com/news/article.html?no=216645" target="_blank">
                   경북도, 재난안전 특별 전시회 개최
                 </a>
               </h5>
@@ -287,17 +254,10 @@
         </div>
         <div class="col">
           <div class="card h-100">
-            <img
-              src="https://image.chosun.com/sitedata/image/202503/12/2025031201047_0.jpg"
-              class="card-img-top"
-              alt="조선일보 뉴스 이미지"
-            />
+            <img src="https://image.chosun.com/sitedata/image/202503/12/2025031201047_0.jpg" class="card-img-top" alt="조선일보 뉴스 이미지" />
             <div class="card-body">
               <h5 class="card-title">
-                <a
-                  href="https://www.chosun.com/national/transport-environment/2025/03/12/NISU7VVNRRGXZFIE27QK4C6MK4/"
-                  target="_blank"
-                >
+                <a href="https://www.chosun.com/national/transport-environment/2025/03/12/NISU7VVNRRGXZFIE27QK4C6MK4/" target="_blank">
                   대중교통 재난 대응 시뮬레이션 도입
                 </a>
               </h5>
