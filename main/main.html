@@ -28,9 +28,11 @@
 
     .top-header {
       background-color: white;
-      padding: 1rem 0; /* 위아래 여백만 */
+      padding: 1rem 0;
       text-align: center;
+      margin-bottom: 1rem;  /* ✅ 요거 추가하면 됨! */
     }
+
 
     .top-header a {
       color: var(--text-color);
@@ -51,7 +53,7 @@
     }
 
     .hero {
-      background-image: url('background.jpg'); /* 이미지 경로 맞게 수정 */
+      background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -81,11 +83,15 @@
       font-size: 1rem;
     }
 
+    .main-content {
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1200px;
+    }
+
     .circle-container {
       display: flex;
       justify-content: space-around;
-      margin: 3rem auto;
-      padding: 0 2rem;
       flex-wrap: wrap;
     }
 
@@ -117,10 +123,10 @@
       transform: scale(1.05);
     }
 
-  .label-text {
+    .label-text {
       margin-top: 1rem;
       font-weight: bold;
-      font-size: 1.3rem;  /* ← 1.2rem ~ 1.5rem 사이로 조정 가능 */
+      font-size: 1.3rem;
       color: navy;
       text-align: center;
     }
@@ -172,10 +178,10 @@
               >재난정보</a
             >
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">태풍</a></li>
-              <li><a class="dropdown-item" href="#">지진</a></li>
-              <li><a class="dropdown-item" href="#">황사</a></li>
-              <li><a class="dropdown-item" href="#">산불</a></li>
+              <li><a class="dropdown-item" href="../disaster/storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="../disaster/earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="../disaster/dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="../disaster/fire.html">산불</a></li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">대피소 안내</a></li>
@@ -197,95 +203,106 @@
     </div>
   </div>
 
-  <!-- Circular Buttons -->
-  <div class="circle-container">
-    <div class="circle-button-wrapper">
-      <div class="circle-button">
-        <img src="태풍.jpg" alt="태풍" />
+  <!-- 본문 영역 (간격 통일용 wrapper 추가됨) -->
+  <div class="main-content">
+    <!-- Circular Buttons -->
+    <div class="circle-container">
+      <div class="circle-button-wrapper">
+        <a href="../disaster/storm.html">
+          <div class="circle-button">
+            <img src="태풍.jpg" alt="태풍" />
+          </div>
+        </a>
+        <div class="label-text">태풍</div>
       </div>
-      <div class="label-text">태풍</div>
-    </div>
-    <div class="circle-button-wrapper">
-      <div class="circle-button">
-        <img src="지진.jpg" alt="지진" />
+      <div class="circle-button-wrapper">
+        <a href="../disaster/earthquake.html">
+          <div class="circle-button">
+            <img src="지진.jpg" alt="지진" />
+          </div>
+        </a>
+        <div class="label-text">지진</div>
       </div>
-      <div class="label-text">지진</div>
-    </div>
-    <div class="circle-button-wrapper">
-      <div class="circle-button">
-        <img src="황사.jpg" alt="황사" />
+      <div class="circle-button-wrapper">
+        <a href="../disaster/dust.html">
+          <div class="circle-button">
+            <img src="황사.jpg" alt="황사" />
+          </div>
+        </a>
+        <div class="label-text">황사</div>
       </div>
-      <div class="label-text">황사</div>
-    </div>
-    <div class="circle-button-wrapper">
-      <div class="circle-button">
-        <img src="산불.jpg" alt="산불" />
+      <div class="circle-button-wrapper">
+        <a href="../disaster/dust.html">
+          <div class="circle-button">
+            <img src="산불.jpg" alt="산불" />
+          </div>
+        </a>
+        <div class="label-text">산불</div>
       </div>
-      <div class="label-text">산불</div>
     </div>
-  </div>
 
-  <!-- 뉴스 기사 영역 -->
-  <div class="container my-5">
-    <h3 class="mb-4 text-center">실시간 뉴스</h3>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img
-            src="https://img.sbs.co.kr/newimg/news/20240312/20240312192507522_w.jpg"
-            class="card-img-top"
-            alt="SBS 뉴스 이미지"
-          />
-          <div class="card-body">
-            <h5 class="card-title">
-              <a
-                href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008080530"
-                target="_blank"
-              >
-                내일 전국 강풍·황사…“외출 자제”
-              </a>
-            </h5>
-            <p class="card-text text-muted">SBS 뉴스</p>
+    <!-- 뉴스 기사 영역 -->
+    <div class="container my-5">
+      <h3 class="mb-4 text-center">실시간 뉴스</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://img.sbs.co.kr/newimg/news/20240312/20240312192507522_w.jpg"
+              class="card-img-top"
+              alt="SBS 뉴스 이미지"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                <a
+                  href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008080530"
+                  target="_blank"
+                >
+                  내일 전국 강풍·황사…“외출 자제”
+                </a>
+              </h5>
+              <p class="card-text text-muted">SBS 뉴스</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img
-            src="https://cdn.dailydgnews.com/news/photo/202403/216645_113358_2542.jpg"
-            class="card-img-top"
-            alt="데일리대구경북 뉴스 이미지"
-          />
-          <div class="card-body">
-            <h5 class="card-title">
-              <a
-                href="http://www.dailydgnews.com/news/article.html?no=216645"
-                target="_blank"
-              >
-                경북도, 재난안전 특별 전시회 개최
-              </a>
-            </h5>
-            <p class="card-text text-muted">데일리대구경북</p>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://cdn.dailydgnews.com/news/photo/202403/216645_113358_2542.jpg"
+              class="card-img-top"
+              alt="데일리대구경북 뉴스 이미지"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                <a
+                  href="http://www.dailydgnews.com/news/article.html?no=216645"
+                  target="_blank"
+                >
+                  경북도, 재난안전 특별 전시회 개최
+                </a>
+              </h5>
+              <p class="card-text text-muted">데일리대구경북</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img
-            src="https://image.chosun.com/sitedata/image/202503/12/2025031201047_0.jpg"
-            class="card-img-top"
-            alt="조선일보 뉴스 이미지"
-          />
-          <div class="card-body">
-            <h5 class="card-title">
-              <a
-                href="https://www.chosun.com/national/transport-environment/2025/03/12/NISU7VVNRRGXZFIE27QK4C6MK4/"
-                target="_blank"
-              >
-                대중교통 재난 대응 시뮬레이션 도입
-              </a>
-            </h5>
-            <p class="card-text text-muted">조선일보</p>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="https://image.chosun.com/sitedata/image/202503/12/2025031201047_0.jpg"
+              class="card-img-top"
+              alt="조선일보 뉴스 이미지"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                <a
+                  href="https://www.chosun.com/national/transport-environment/2025/03/12/NISU7VVNRRGXZFIE27QK4C6MK4/"
+                  target="_blank"
+                >
+                  대중교통 재난 대응 시뮬레이션 도입
+                </a>
+              </h5>
+              <p class="card-text text-muted">조선일보</p>
+            </div>
           </div>
         </div>
       </div>
