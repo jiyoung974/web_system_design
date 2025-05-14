@@ -24,7 +24,7 @@
     .top-header {
       background-color: white;
       padding: 1rem 0;
-      text-align: center;
+      margin-bottom: 1rem;
     }
 
     .main-nav {
@@ -42,6 +42,7 @@
       width: 100%;
       height: 400px;
       border: 1px solid var(--border-color);
+      display: block;
     }
 
     footer {
@@ -59,42 +60,50 @@
     }
   </style>
 
+  <!-- 카카오 지도 SDK -->
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e6efea5c3097fc615d5c53cecb85a97b&autoload=false&libraries=services"></script>
 </head>
 <body>
+
   <!-- Top Header -->
-  <div class="top-header">
-    <img src="로고.png" alt="Ready Logo" style="height: 60px" />
+  <div class="top-header d-flex justify-content-center align-items-center flex-column">
+    <a href="/main/main.html">
+      <img src="로고.png" alt="Logo" style="height: 60px;" />
+    </a>
   </div>
 
-  <!-- Main Nav -->
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg main-nav px-4">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav w-100 d-flex justify-content-evenly">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">태풍</a></li>
-              <li><a class="dropdown-item" href="#">지진</a></li>
-              <li><a class="dropdown-item" href="#">황사</a></li>
-              <li><a class="dropdown-item" href="#">산불</a></li>
+            <a class="nav-link dropdown-toggle" href="#" id="disasterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              재난정보
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="disasterDropdown">
+              <li><a class="dropdown-item" href="/disaster/storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="/disaster/earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="/disaster/dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="/disaster/fire.html">산불</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link active" href="#">대피소 안내</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/map/map.html">대피소 안내</a></li>
           <li class="nav-item"><a class="nav-link" href="#">구호물품</a></li>
           <li class="nav-item"><a class="nav-link" href="#">뉴스 & 정보</a></li>
           <li class="nav-item"><a class="nav-link" href="#">퀴즈</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank">기상청</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener noreferrer">기상청</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Content -->
+  <!-- Main Content -->
   <div class="container my-5">
     <h3 class="mb-4 text-center">대피소 위치 안내</h3>
     <p class="text-center text-muted mb-3">
@@ -116,7 +125,7 @@
     경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침
   </footer>
 
-  <!-- Script -->
+  <!-- Kakao Map Script -->
   <script>
     kakao.maps.load(function () {
       const shelters = [
@@ -159,7 +168,6 @@
         });
       }
 
-      // 현재 위치 마커 표시
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           const lat = position.coords.latitude;
