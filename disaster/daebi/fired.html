@@ -153,9 +153,15 @@
         }
 
         .checklist-item p {
-            font-size: 0.8rem;
-            margin-bottom: 0;
-        }
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  min-height: 2.5rem; /* ✅ 한 줄일 때도 공간 확보 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
         footer {
             background-color: var(--primary-color);
@@ -228,40 +234,43 @@
             <h2>산불 대비 체크리스트 ✅</h2>
             <div id="checklist">
                 <div class="checklist-item" data-id="0" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-tree"></i>
-                    <h5>불씨 감시</h5>
-                    <p>논밭, 야외에서<br>쓰레기나 잡초 태우지 않는다</p>
+                    <i class="fa-solid fa-smoking-ban"></i>
+                    <h5>불씨 완전 소화하기</h5>
+                    <p>야외 활동 후 담배꽁초나 불씨가<br>남지 않았는지 꼭 확인한다</p>
                 </div>
+                                                 
                 
                 <div class="checklist-item" data-id="1" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-fire-extinguisher"></i>
-                    <h5>진화 도구 준비</h5>
-                    <p>집 주변에 소화기나 모래 등<br>초기 진화 도구를 준비한다</p>
+                    <i class="fa-solid fa-ban"></i>
+                    <h5>쓰레기 소각 금지</h5>
+                    <p>야외에서 쓰레기나 잡초를<br>태우지 않는다</p>
                 </div>
                 
                 <div class="checklist-item" data-id="2" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-smoking-ban"></i>
-                    <h5>산불 위험 행동 금지</h5>
-                    <p>등산 시 흡연이나<br>라이터 사용을 삼간다</p>
+                    <i class="fa-solid fa-fire-extinguisher"></i>
+                    <h5>진화 도구 준비</h5>
+                    <p>소화기, 물통, 모래를<br>집 주변에 준비한다</p>
                 </div>
                 
                 <div class="checklist-item" data-id="3" onclick="toggleCheck(this)">
                     <i class="fa-solid fa-door-closed"></i>
-                    <h5>창문과 출입문 닫기</h5>
-                    <p>산불 연기와 불씨 유입을 막기 위해<br>집을 밀폐한다</p>
+                    <h5>창문 밀폐</h5>
+                    <p>연기와 불씨 유입을 막기 위해<br>창문을 닫는다</p>
                 </div>
                 
                 <div class="checklist-item" data-id="4" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-car-on"></i>
-                    <h5>차량 대피 준비</h5>
-                    <p>차량은 주차 방향을 대피로 쪽으로<br>돌려놓는다</p>
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                    <h5>연료·가스 차단 확인</h5>
+                    <p>LPG, 도시가스, 연료통 등을<br>미리 점검하고 차단한다</p>
                 </div>
+                  
                 
                 <div class="checklist-item" data-id="5" onclick="toggleCheck(this)">
                     <i class="fa-solid fa-volume-high"></i>
                     <h5>산불 경보 수신</h5>
-                    <p>TV, 라디오, 스마트폰으로<br>산불 정보에 주의한다</p>
-                </div>                  
+                    <p>스마트폰과 방송 알림을 설정한다</p>
+                </div>
+                                    
             </div>
         </div>
     </div>

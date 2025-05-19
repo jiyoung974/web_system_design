@@ -152,9 +152,15 @@
     }
 
     .checklist-item p {
-      font-size: 0.8rem;
-      margin-bottom: 0;
-    }
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  min-height: 2.5rem; /* ✅ 한 줄일 때도 공간 확보 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
     footer {
       background-color: var(--primary-color);
@@ -224,40 +230,40 @@
       <h2>황사 대비 체크리스트 ✅</h2>
       <div id="checklist">
         <div class="checklist-item" data-id="0" onclick="toggleCheck(this)">
-            <i class="fa-solid fa-mask-face"></i>
-            <h5>보건용 마스크 착용</h5>
-            <p>외출 시 KF80 이상 마스크를<br>반드시 착용한다</p>
+          <i class="fa-solid fa-cloud-sun"></i>
+          <h5>황사 예보 확인</h5>
+          <p>매일 기상청 황사 예보를 확인한다</p>
         </div>
         
         <div class="checklist-item" data-id="1" onclick="toggleCheck(this)">
-            <i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i>
-            <h5>외출 자제</h5>
-            <p>황사 경보 발령 시 외출을 최소화한다</p>
-        </div>
+          <i class="fa-solid fa-shirt"></i>
+          <h5>실내 건조물 수거</h5>
+          <p>실외에 널어둔 빨래를 걷는다</p>
+        </div>        
         
         <div class="checklist-item" data-id="2" onclick="toggleCheck(this)">
-            <i class="fa-solid fa-door-closed"></i>
-            <h5>창문 닫기</h5>
-            <p>황사 유입을 막기 위해<br>창문을 꼭 닫는다</p>
+          <i class="fa-solid fa-wind"></i>
+          <h5>공기청정기 점검</h5>
+          <p>필터 교체 여부를 확인하고<br>정상 작동을 점검한다</p>
         </div>
         
         <div class="checklist-item" data-id="3" onclick="toggleCheck(this)">
-            <i class="fa-solid fa-bottle-water"></i>
-            <h5>수분 섭취</h5>
-            <p>호흡기 보호를 위해<br>충분히 물을 마신다</p>
+          <i class="fa-solid fa-box-open"></i>
+          <h5>KF 마스크 구비</h5>
+          <p>KF80 이상 마스크를<br>충분히 준비해 둔다</p>
         </div>
         
         <div class="checklist-item" data-id="4" onclick="toggleCheck(this)">
-            <i class="fa-solid fa-shirt"></i>
-            <h5>외출 후 세척</h5>
-            <p>외출 후 손, 얼굴, 눈을 깨끗이 씻는다</p>
+          <i class="fa-solid fa-car-side"></i>
+          <h5>차량 공조기 점검</h5>
+          <p>황사 유입을 막기 위해<br>차량 내 필터를 점검한다</p>
         </div>
         
         <div class="checklist-item" data-id="5" onclick="toggleCheck(this)">
-            <i class="fa-solid fa-child-reaching"></i>
-            <h5>영유아 보호</h5>
-            <p>호흡기 취약 계층은<br>황사에 노출되지 않도록 한다</p>
-        </div>          
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <h5>창틀·환기구 정비</h5>
+          <p>환기구와 창틀의 틈새를<br>미리 점검하고 막는다</p>  
+        </div>               
       </div>
     </div>
   </div>
