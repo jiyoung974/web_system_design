@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>태풍 대비 - Safety 365</title>
+  <title>지진 대비 - Safety 365</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
@@ -48,7 +48,7 @@
     }
 
     .hero-banner {
-      background-image: url('../storm1.png');
+      background-image: url('../earthquake_banner.png'); /* 지진용 배너 이미지로 교체 필요 */
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -98,7 +98,7 @@
     .content {
       flex-grow: 1;
       padding-left: 2rem;
-      max-width: calc(100% - 220px - 3.5rem); /* 사이드바 너비와 여백 고려 */
+      max-width: calc(100% - 220px - 2.5rem);
     }
 
     h2 {
@@ -112,7 +112,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 24px;
+      gap: 2.5rem;
     }
 
     .checklist-item {
@@ -124,7 +124,7 @@
       border-radius: 10px;
       padding: 1.5rem;
       box-sizing: border-box;
-
+      max-width: calc(33.33% - 1rem);
       text-align: center;
     }
 
@@ -210,48 +210,48 @@
   </nav>
 
   <div class="hero-banner">
-    <div class="hero-text">태풍 대비</div>
+    <div class="hero-text">지진 대비</div>
   </div>
 
   <div class="container-custom">
     <div class="sidebar">
-      <a href="../daebi/stormd.html" class="btn btn-outline-primary">태풍 대비</a>
-      <a href="../behavior/storm/stormb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
-      <a href="https://www.weather.go.kr/w/typhoon/ko/weather/typhoon_02.jsp" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
+      <a href="daebi/earthquaked.html" class="btn btn-outline-primary">지진 대비</a>
+      <a href="../behavior/earthquake/earthquakeb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
+      <a href="https://www.weather.go.kr/w/eqk-vol/search/korea.do" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
     </div>
 
     <div class="content">
-      <h2>태풍 대비 체크리스트 📖</h2>
+      <h2>지진 대비 체크리스트 📖</h2>
       <div id="checklist">
         <div class="checklist-item" data-id="0" onclick="toggleCheck(this)">
-          <i class="fa-solid fa-window-maximize"></i>
-          <h5>창문 보호</h5>
-          <p>창문에 테이프를 붙여 파손을 방지한다</p>
+          <i class="fa-solid fa-house-crack"></i>
+          <h5>튼튼한 구조물 아래 대피</h5>
+          <p>책상, 침대 아래 등 낙하물로부터 안전한 곳으로 몸을 숨긴다</p>
         </div>
         <div class="checklist-item" data-id="1" onclick="toggleCheck(this)">
-          <i class="fa-solid fa-bottle-water"></i>
-          <h5>비상식량 확보</h5>
-          <p>비상식량과 생수를 미리 확보해둔다</p>
+          <i class="fa-solid fa-plug-circle-xmark"></i>
+          <h5>전기·가스 차단</h5>
+          <p>지진이 멈춘 후 전기와 가스 밸브를 즉시 차단한다</p>
         </div>
         <div class="checklist-item" data-id="2" onclick="toggleCheck(this)">
-          <i class="fa-solid fa-water"></i>
-          <h5>배수구 점검</h5>
-          <p>배수구와 문틈 주변을 점검해<br>침수에 대비한다</p>
+          <i class="fa-solid fa-door-open"></i>
+          <h5>문 열기</h5>
+          <p>지진 중 문이 뒤틀릴 수 있으니 문을 열어 탈출 경로를 확보한다</p>
         </div>
         <div class="checklist-item" data-id="3" onclick="toggleCheck(this)">
-          <i class="fa-solid fa-lightbulb"></i>
-          <h5>비상물품 준비</h5>
-          <p>손전등, 휴대용 라디오 등<br>비상물품을 준비한다</p>
+          <i class="fa-solid fa-people-group"></i>
+          <h5>흩어지지 않기</h5>
+          <p>건물 밖으로 나갈 땐 가족이나 동료와 함께 행동한다</p>
         </div>
         <div class="checklist-item" data-id="4" onclick="toggleCheck(this)">
-          <i class="fa-solid fa-battery-full"></i>
-          <h5>전기 충전</h5>
-          <p>휴대폰, 보조배터리, 전기차를 <br>미리 충전한다</p>
+          <i class="fa-solid fa-arrow-up-from-ground-water"></i>
+          <h5>높은 곳으로 이동</h5>
+          <p>해안 지역에서는 지진 발생 후 즉시 높은 지대로 이동한다</p>
         </div>
         <div class="checklist-item" data-id="5" onclick="toggleCheck(this)">
-          <i class="fa-solid fa-tree"></i>
-          <h5>외부 물건 고정</h5>
-          <p>화분 등 외부 물건을 단단히 고정한다</p>
+          <i class="fa-solid fa-circle-info"></i>
+          <h5>정확한 정보 확인</h5>
+          <p>지자체나 방송을 통해 공식 안전 정보를 확인한다</p>
         </div>
       </div>
     </div>
@@ -260,7 +260,7 @@
   <script>
     document.querySelectorAll('.checklist-item').forEach(item => {
       const id = item.getAttribute('data-id');
-      const checked = localStorage.getItem('typhoon_check_' + id);
+      const checked = localStorage.getItem('earthquake_check_' + id);
       if (checked === 'true') item.classList.add('checked');
     });
 
@@ -268,7 +268,7 @@
       const id = element.getAttribute('data-id');
       element.classList.toggle('checked');
       const isChecked = element.classList.contains('checked');
-      localStorage.setItem('typhoon_check_' + id, isChecked);
+      localStorage.setItem('earthquake_check_' + id, isChecked);
     }
   </script>
 

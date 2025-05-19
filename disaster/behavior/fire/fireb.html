@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>지진 - Safety 365</title>
+  <title>산불 발생 시 행동요령 - Safety 365</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     :root {
@@ -12,7 +12,6 @@
       --bg-color: #f8f9fa;
       --text-color: #212529;
       --highlight: #e6f0ff;
-      --yellow-highlight: rgba(255, 243, 176, 0.6); /* 반투명 노란색 */
     }
 
     body {
@@ -48,7 +47,7 @@
     }
 
     .hero-banner {
-      background-image: url('earth1.jpg');
+      background-image: url('../../fire1.png');
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -103,40 +102,34 @@
     h2 {
       color: var(--primary-color);
       font-weight: bold;
-      margin-top: 2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
-    .info-box {
-      background-color: var(--highlight);
+    .carousel-wrapper {
+      background-color: #c7cbcf;
       padding: 2.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      max-width: 750px;
+      margin: 0 auto;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
-    .info-box p {
-      font-size: 1.2rem;
-      line-height: 2;
-      margin-bottom: 2.5rem;
-      letter-spacing: -0.3px; /* 자간 좁힘 */
+    .slide-img {
+      max-height: 480px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: 18px;
+      border: 10px solid rgba(233, 233, 233, 0.765);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     }
 
-    .emoji {
-      font-size: 1.4rem;
-      margin-right: 10px;
-    }
-
-    .highlight {
-      color: var(--accent-color);
-      font-weight: bold;
-      font-size: 1.35rem;
-    }
-
-    .highlight-yellow {
-      background-color: var(--yellow-highlight);
-      padding: 0 4px;
-      border-radius: 4px;
-      font-weight: bold;
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #003366;
+      border-radius: 50%;
+      padding: 15px;
+      background-size: 60% 60%;
     }
 
     footer {
@@ -147,17 +140,12 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
-    .highlight-pink {
-    background-color: rgba(241, 187, 255, 0.214);
-    padding: 0 4px;
-    font-weight: bold;
-  }
-</style>
+  </style>
 </head>
 <body>
   <!-- Top Header -->
   <div class="top-header d-flex justify-content-center align-items-center flex-column">
-    <a href="../main/main.html"><img src="로고.png" alt="Ready Logo" /></a>
+    <a href="../../main/main.html"><img src="../../로고.png" alt="Logo" /></a>
   </div>
 
   <!-- Main Nav -->
@@ -171,11 +159,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
             <ul class="dropdown-menu">
-  <li><a class="dropdown-item" href="storm.html">태풍</a></li>
-  <li><a class="dropdown-item" href="earthquake.html">지진</a></li>
-  <li><a class="dropdown-item" href="dust.html">황사</a></li>
-  <li><a class="dropdown-item" href="fire.html">산불</a></li>
-</ul>
+              <li><a class="dropdown-item" href="../../storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="../../earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="../../dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="../../fire.html">산불</a></li>
+            </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">대피소 안내</a></li>
           <li class="nav-item"><a class="nav-link" href="#">구호물품</a></li>
@@ -187,30 +175,50 @@
     </div>
   </nav>
 
-  <!-- 배경 이미지 영역 -->
+  <!-- 배경 이미지 -->
   <div class="hero-banner">
-    <div class="hero-text">지진</div>
+    <div class="hero-text">산불 발생 시 행동요령</div>
   </div>
 
-  <!-- 태풍 상세 UI 영역 -->
+  <!-- 본문 영역 -->
   <div class="container-custom">
-    <!-- 왼쪽 세부 메뉴 -->
+    <!-- 사이드바 -->
     <div class="sidebar">
-      <a href="daebi/earthquaked.html" class="btn btn-outline-primary">지진 대비</a>
-      <a href="behavior/earthquake/earthquakeb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
-      <a href="https://www.weather.go.kr/w/eqk-vol/search/korea.do" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
+      <a href="../../daebi/fired.html" class="btn btn-outline-primary">산불 대비</a>
+      <a href="fireb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
+      <a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/acd/frfireUserList.html?menuSeq=98" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
     </div>
 
-    <!-- 오른쪽 설명 영역 -->
+    <!-- 콘텐츠 -->
     <div class="content">
-      <h2>지진이란? ⚠️</h2>
-      <div class="info-box">
-        <p><span class="emoji">📌</span><strong class="highlight">지진</strong>은 지각 내부 단층에서 갑작스러운 에너지 방출로 발생하는 <span class="highlight-yellow">지반의 진동 현상</span>이다.</p>
-        <p><span class="emoji">📌</span><span class="highlight-yellow">지각판 경계</span>에서 응력 축적 후 단층이 파열되며, <span class="highlight-yellow">P파와 S파</span> 등의 지진파가 발생한다.</p>
-        <p><span class="emoji">📌</span>지진의 규모는 <span class="highlight-yellow">모멘트 규모(Mw)</span>로 측정되며, 피해 정도는 <span class="highlight-yellow">진도</span>를 통해 구분된다.</p>
-        <p><span class="emoji">📌</span>강진은 건물 붕괴, 산사태, 지반 액상화 등 다양한 2차 피해를 유발할 수 있다.</p>
-        <p><span class="emoji">📌</span>우리나라도 <span class="highlight-pink">경주 지진</span>(2016, 규모 5.8), <span class="highlight-pink">포항 지진</span>(2017, 규모 5.4) 등으로 <span class="highlight-yellow">지진 위험 지역</span>임이<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;확인되었다.</p>
+      <h2>이렇게 행동하세요!</h2>
+
+      <div class="carousel-wrapper">
+        <div id="slideGuide" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+              <img src="1.png" class="d-block slide-img" alt="1단계 행동요령">
+            </div>
+            <div class="carousel-item">
+              <img src="2.png" class="d-block slide-img" alt="2단계 행동요령">
+            </div>
+            <div class="carousel-item">
+              <img src="3.png" class="d-block slide-img" alt="3단계 행동요령">
+            </div>
+            <div class="carousel-item">
+              <img src="4.png" class="d-block slide-img" alt="4단계 행동요령">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#slideGuide" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">이전</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#slideGuide" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">다음</span>
+          </button>
         </div>
+      </div>
     </div>
   </div>
 
