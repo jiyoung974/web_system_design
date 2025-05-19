@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>황사 대비 - Safety 365</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #003366;
+      --accent-color: #cc0000;
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --highlight: #e6f0ff;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Source Sans Pro', sans-serif;
+      margin: 0;
+      color: var(--text-color);
+    }
+
+    .top-header {
+      background-color: white;
+      padding: 1rem 0;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .top-header img {
+      height: 60px;
+    }
+
+    .main-nav {
+      margin-top: 0.5rem;
+      background-color: var(--primary-color);
+    }
+
+    .main-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    .main-nav .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero-banner {
+      background-image: url('../dust1.jpg'); /* 지진용 배너 이미지로 교체 필요 */
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-text {
+      position: relative;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    .container-custom {
+      display: flex;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1200px;
+    }
+
+    .sidebar {
+      width: 220px;
+      padding-right: 1.5rem;
+      border-right: 2px solid #dee2e6;
+    }
+
+    .sidebar .btn {
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding-left: 2rem;
+      max-width: calc(100% - 220px - 2.5rem);
+    }
+
+  h2 {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+
+    #checklist {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2.5rem;
+    }
+
+    .checklist-item {
+      flex: 0 0 30%;
+      background-color: #f8f9fa;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-sizing: border-box;
+      max-width: calc(33.33% - 1rem);
+      text-align: center;
+    }
+
+    .checklist-item:hover {
+      transform: scale(1.02);
+    }
+
+    .checklist-item.checked {
+      background-color: #d4edda !important;
+      border-color: #28a745;
+    }
+
+    .checklist-item.checked i {
+      color: #28a745;
+    }
+
+    .checklist-item i {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .checklist-item h5 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .checklist-item p {
+      font-size: 0.8rem;
+      margin-bottom: 0;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 992px) {
+      .checklist-item {
+        max-width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .checklist-item {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-header d-flex justify-content-center align-items-center flex-column">
+    <a href="../../main/main.html"><img src="../로고.png" alt="Logo" /></a>
+  </div>
+
+  <nav class="navbar navbar-expand-lg main-nav px-4">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav w-100 d-flex justify-content-evenly">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="../earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="../dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="../fire.html">산불</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">대피소 안내</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">구호물품</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">뉴스 & 정보</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">퀴즈</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank">기상청</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero-banner">
+    <div class="hero-text">황사 대비</div>
+  </div>
+
+  <div class="container-custom">
+    <div class="sidebar">
+      <a href="dustd.html" class="btn btn-outline-primary">황사 대비</a>
+      <a href="../behavior/dust/dustb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
+      <a href="https://www.weather.go.kr/w/dust/dust-obs/values.do" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
+    </div>
+
+    <div class="content">
+      <h2>황사 대비 체크리스트 ✅</h2>
+      <div id="checklist">
+        <div class="checklist-item" data-id="0" onclick="toggleCheck(this)">
+            <i class="fa-solid fa-mask-face"></i>
+            <h5>보건용 마스크 착용</h5>
+            <p>외출 시 KF80 이상 마스크를<br>반드시 착용한다</p>
+        </div>
+        
+        <div class="checklist-item" data-id="1" onclick="toggleCheck(this)">
+            <i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i>
+            <h5>외출 자제</h5>
+            <p>황사 경보 발령 시 외출을 최소화한다</p>
+        </div>
+        
+        <div class="checklist-item" data-id="2" onclick="toggleCheck(this)">
+            <i class="fa-solid fa-door-closed"></i>
+            <h5>창문 닫기</h5>
+            <p>황사 유입을 막기 위해<br>창문을 꼭 닫는다</p>
+        </div>
+        
+        <div class="checklist-item" data-id="3" onclick="toggleCheck(this)">
+            <i class="fa-solid fa-bottle-water"></i>
+            <h5>수분 섭취</h5>
+            <p>호흡기 보호를 위해<br>충분히 물을 마신다</p>
+        </div>
+        
+        <div class="checklist-item" data-id="4" onclick="toggleCheck(this)">
+            <i class="fa-solid fa-shirt"></i>
+            <h5>외출 후 세척</h5>
+            <p>외출 후 손, 얼굴, 눈을 깨끗이 씻는다</p>
+        </div>
+        
+        <div class="checklist-item" data-id="5" onclick="toggleCheck(this)">
+            <i class="fa-solid fa-child-reaching"></i>
+            <h5>영유아 보호</h5>
+            <p>호흡기 취약 계층은<br>황사에 노출되지 않도록 한다</p>
+        </div>          
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.checklist-item').forEach(item => {
+      const id = item.getAttribute('data-id');
+      const checked = localStorage.getItem('earthquake_check_' + id);
+      if (checked === 'true') item.classList.add('checked');
+    });
+
+    function toggleCheck(element) {
+      const id = element.getAttribute('data-id');
+      element.classList.toggle('checked');
+      const isChecked = element.classList.contains('checked');
+      localStorage.setItem('earthquake_check_' + id, isChecked);
+    }
+  </script>
+
+  <footer>
+    경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

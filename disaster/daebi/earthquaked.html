@@ -48,7 +48,7 @@
     }
 
     .hero-banner {
-      background-image: url('../earthquake_banner.png'); /* 지진용 배너 이미지로 교체 필요 */
+      background-image: url('../earth1.jpg'); /* 지진용 배너 이미지로 교체 필요 */
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -101,12 +101,12 @@
       max-width: calc(100% - 220px - 2.5rem);
     }
 
-    h2 {
-      color: var(--primary-color);
-      font-weight: bold;
-      margin-top: 2rem;
-      margin-bottom: 3rem;
-    }
+  h2 {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
 
     #checklist {
       display: flex;
@@ -215,43 +215,43 @@
 
   <div class="container-custom">
     <div class="sidebar">
-      <a href="daebi/earthquaked.html" class="btn btn-outline-primary">지진 대비</a>
+      <a href="earthquaked.html" class="btn btn-outline-primary">지진 대비</a>
       <a href="../behavior/earthquake/earthquakeb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
       <a href="https://www.weather.go.kr/w/eqk-vol/search/korea.do" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
     </div>
 
     <div class="content">
-      <h2>지진 대비 체크리스트 📖</h2>
+      <h2>지진 대비 체크리스트 ✅</h2>
       <div id="checklist">
         <div class="checklist-item" data-id="0" onclick="toggleCheck(this)">
           <i class="fa-solid fa-house-crack"></i>
           <h5>튼튼한 구조물 아래 대피</h5>
-          <p>책상, 침대 아래 등 낙하물로부터 안전한 곳으로 몸을 숨긴다</p>
+          <p>책상, 침대 아래 등 낙하물로부터<br>안전한 곳으로 몸을 숨긴다</p>
         </div>
         <div class="checklist-item" data-id="1" onclick="toggleCheck(this)">
           <i class="fa-solid fa-plug-circle-xmark"></i>
           <h5>전기·가스 차단</h5>
-          <p>지진이 멈춘 후 전기와 가스 밸브를 즉시 차단한다</p>
+          <p>지진이 멈춘 후 전기와<br>가스 밸브를 즉시 차단한다</p>
         </div>
         <div class="checklist-item" data-id="2" onclick="toggleCheck(this)">
           <i class="fa-solid fa-door-open"></i>
           <h5>문 열기</h5>
-          <p>지진 중 문이 뒤틀릴 수 있으니 문을 열어 탈출 경로를 확보한다</p>
+          <p>지진 중 문이 뒤틀릴 수 있으니<br>문을 열어 탈출 경로를 확보한다</p>
         </div>
         <div class="checklist-item" data-id="3" onclick="toggleCheck(this)">
           <i class="fa-solid fa-people-group"></i>
           <h5>흩어지지 않기</h5>
-          <p>건물 밖으로 나갈 땐 가족이나 동료와 함께 행동한다</p>
+          <p>건물 밖으로 나갈 땐<br>가족이나 동료와 함께 행동한다</p>
         </div>
         <div class="checklist-item" data-id="4" onclick="toggleCheck(this)">
           <i class="fa-solid fa-arrow-up-from-ground-water"></i>
           <h5>높은 곳으로 이동</h5>
-          <p>해안 지역에서는 지진 발생 후 즉시 높은 지대로 이동한다</p>
+          <p>해안 지역에서는 지진 발생 후<br>즉시 높은 지대로 이동한다</p>
         </div>
         <div class="checklist-item" data-id="5" onclick="toggleCheck(this)">
           <i class="fa-solid fa-circle-info"></i>
           <h5>정확한 정보 확인</h5>
-          <p>지자체나 방송을 통해 공식 안전 정보를 확인한다</p>
+          <p>지자체나 방송을 통해<br>공식 안전 정보를 확인한다</p>
         </div>
       </div>
     </div>
