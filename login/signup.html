@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>회원가입</title>
+</head>
+<body>
+  <h2>회원가입</h2>
+  <form onsubmit="register(event)">
+    <input type="text" id="newId" placeholder="아이디" required><br>
+    <input type="password" id="newPw" placeholder="비밀번호" required><br>
+    <button type="submit">회원가입</button>
+  </form>
+
+  <script>
+    function register(e) {
+      e.preventDefault();
+      const id = document.getElementById('newId').value;
+      const pw = document.getElementById('newPw').value;
+      localStorage.setItem('userId', id);
+      localStorage.setItem('userPw', pw);
+      alert('회원가입 완료!');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
