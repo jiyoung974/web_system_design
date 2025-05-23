@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Safety 365 - 뉴스&정보</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #003366;
+      --accent-color: #cc0000;
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .top-header {
+      background-color: white;
+      padding: 1rem 0;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .main-nav {
+      background-color: var(--primary-color);
+    }
+
+    .main-nav .nav-link {
+      color: white !important;
+    }
+
+    .content-area {
+      flex-grow: 1;
+      padding: 2rem;
+      margin-top: 100px;
+    }
+
+    .news-scroll {
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-inner {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .news-card {
+      min-width: 300px;
+      max-width: 300px;
+      margin-right: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: white;
+      flex-shrink: 0;
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .news-card-body {
+      padding: 1rem;
+    }
+
+    .news-card-body a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Top Header -->
+  <div class="top-header">
+    <img src="safty365_logo.png" alt="Logo" style="height: 60px" />
+  </div>
+
+  <!-- Main Nav -->
+  <nav class="navbar navbar-expand-lg main-nav px-4">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav w-100 d-flex justify-content-evenly">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              >재난정보</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">태풍</a></li>
+              <li><a class="dropdown-item" href="#">지진</a></li>
+              <li><a class="dropdown-item" href="#">황사</a></li>
+              <li><a class="dropdown-item" href="#">산불</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">대피소 안내</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">구호물품</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">뉴스 & 정보</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">퀴즈</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener noreferrer">기상청</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="content-area">
+    <h2 class="text-center mb-4">재난 뉴스</h2>
+    <div class="news-scroll justify-content-center">
+      <button onclick="scrollPrev()" class="btn btn-outline-secondary me-2">◀</button>
+      <div class="carousel-inner" id="carousel">
+        <!-- 카드들 -->
+      </div>
+      <button onclick="scrollNext()" class="btn btn-outline-secondary ms-2">▶</button>
+    </div>
+  </main>
+
+  <footer>
+    경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침
+  </footer>
+
+    <script>
+  const newsData = [
+    {
+      title: "경북 김천 동북동쪽서 규모 2.4 지진 발생",
+      link: "https://www.yna.co.kr/view/AKR20250519094300530?section=safe/news-natural",
+      image: "article1.jpg"
+    },
+    {
+      title: "폭우로 금천구 주택가 공사장 토사 쓸려…17세대 대피",
+      link: "https://www.yna.co.kr/view/AKR20250516160800004?section=safe/news-natural",
+      image: "article2.jpg"
+    },
+    {
+      title: "남양주 누적 118㎜ 폭우…차량 침수 등 피해 잇따라",
+      link: "https://www.yna.co.kr/view/AKR20250516147200060?section=safe/news-natural",
+      image: "article3.jpg"
+    },
+    {
+      title: "평창 대관령 산불…헬기 5개 투입해 1시간13분 만에 진화",
+      link: "https://www.yna.co.kr/view/AKR20250506026551062?section=safe/news-natural",
+      image: "article4.jpg"
+    },
+    {
+      title: "강원 삼척 동남동쪽 바다서 규모 2.2 지진…",
+      link: "https://www.yna.co.kr/view/AKR20250503040300530?section=safe/news-natural",
+      image: "article5.jpg"
+    },
+    {
+      title: "의정부서 방화 추정 화재로 40여명 대피…피의자 검거",
+      link: "https://www.yna.co.kr/view/AKR20250523008100060?section=safe/news",
+      image: "article6.jpg"
+    },
+    {
+      title: "당진∼대전고속도로 달리던 탱크로리 염산 유출…긴급방제",
+      link: "https://www.yna.co.kr/view/AKR20250522153600063?section=safe/news",
+      image: "article7.jpg"
+    }
+  ];
+
+  let scrollPosition = 0;
+
+  function scrollNext() {
+    const container = document.getElementById('carousel');
+    scrollPosition += 310;
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+  }
+    function scrollPrev() {
+    const container = document.getElementById('carousel');
+    scrollPosition = Math.max(0, scrollPosition - 310);
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+  }
+  function loadNews() {
+    const container = document.getElementById('carousel');
+    container.innerHTML = '';
+
+    newsData.forEach(news => {
+      const card = document.createElement('div');
+      card.className = 'news-card';
+      card.innerHTML = `
+        <img src="${news.image}" alt="뉴스 이미지">
+        <div class="news-card-body">
+          <a href="${news.link}" target="_blank">${news.title}</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  loadNews();
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
