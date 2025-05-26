@@ -3,51 +3,28 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Safety365</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>장바구니 | Safety 365</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         :root {
             --primary-color: #003366;
-            --accent-color: #cc0000;
             --bg-color: #f8f9fa;
-            --text-color: #212529;
         }
 
         body {
             background-color: var(--bg-color);
             font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
-            color: var(--text-color);
         }
 
         .top-header {
             background-color: white;
             padding: 1rem 0;
-            text-align: center;
             margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .top-header img {
-            height: 60px;
-        }
-
-        .top-header .top-links {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 0.75rem;
-        }
-
-        .top-header .top-links a {
-            color: #003366;
-            margin-left: 10px;
-            text-decoration: none;
         }
 
         .main-nav {
-            margin-top: 0.5rem;
             background-color: var(--primary-color);
         }
 
@@ -60,38 +37,82 @@
             text-decoration: underline;
         }
 
-        .container-custom {
-            max-width: 1200px;
-            margin: 4rem auto;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        .login-links-fixed {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            z-index: 9999;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
+        .login-links-fixed a {
+            color: #003366;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
         }
 
-        .cart-item {
+        .login-section {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            padding: 1rem 0;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 4rem 2rem;
         }
 
-        .cart-empty {
-            text-align: center;
-            color: #888;
-            padding: 3rem 0;
+        .login-box {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 800px;
+            min-height: 500px;
+            position: relative;
+        }
+
+        .cart-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
 
         .checkout-btn {
-            margin-top: 2rem;
             text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+            padding: 1.5rem 1rem;
+        }
+
+        .product-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .empty-box {
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        .test-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
         }
 
         footer {
@@ -100,28 +121,25 @@
             text-align: center;
             padding: 1rem;
             font-size: 0.9rem;
-            margin-top: 3rem;
-        }
-
-        .modal-content {
-            display: block;
-            background-color: #fff;
-            z-index: 1050;
+            margin-top: 4rem;
         }
     </style>
 </head>
 
 <body>
-    <!-- Top Header -->
-    <div class="top-header d-flex justify-content-center align-items-center flex-column">
-        <a href="../main/main.html"><img src="../disaster/로고.png" alt="Logo" /></a>
-        <div class="top-links" style="right: 30px; letter-spacing: 0.5px;">
-            <a href="../login/login.html">로그인</a> &nbsp;&nbsp;&nbsp;|
-            <a href="../login/signup.html">회원가입</a>
-        </div>
+
+    <!-- ✅ 로그인/회원가입 링크 (상단 고정) -->
+    <div class="login-links-fixed">
+        <a href="../login/login.html">로그인</a>
+        <a href="../login/signup.html">회원가입</a>
     </div>
 
-    <!-- Main Nav -->
+    <div class="top-header d-flex justify-content-center align-items-center flex-column">
+        <a href="../main/main.html">
+            <img src="../main/로고.png" alt="Logo" style="height: 60px;" />
+        </a>
+    </div>
+
     <nav class="navbar navbar-expand-lg main-nav px-4">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -139,9 +157,9 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../map/map.html">대피소 안내</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">구호물품</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">뉴스 & 정보</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">퀴즈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../shopping/shopping.html">구호물품</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../news/news.html">뉴스 & 정보</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../quiz/quiz.html">퀴즈</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do"
                             target="_blank">기상청</a></li>
                 </ul>
@@ -149,76 +167,107 @@
         </div>
     </nav>
 
-    <!-- Content -->
-    <div class="container-custom">
-        <h2 id="user-title">쇼핑리스트 🛒</h2>
-        <div id="cart-list"></div>
-        <div class="checkout-btn">
-            <button class="btn btn-success" onclick="checkout()">결제하기</button>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="paymentModalLabel">Safety365</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="login-section">
+        <div class="login-box">
+            <div class="cart-title">장바구니</div>
+            <button class="btn btn-outline-secondary btn-sm test-btn" onclick="addTestItems()">🧪 테스트 상품 추가</button>
+            <div id="cart-items"></div>
+            <div id="summary-box" style="display: none;">
+                <div class="summary">
+                    총 결제금액: <span id="total-price">0</span>원
                 </div>
-                <div class="modal-body">
-                    결제되었습니다!
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+                <div class="checkout-btn">
+                    <button class="btn btn-success" onclick="checkout()">결제하기</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        경찰서 : 112 | 소방서 : 119 | <a href="/main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
-    </footer>
+    <footer>경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침</footer>
 
-    <!-- Script -->
     <script>
+        let total = 0;
+
         function getCookie(name) {
-            const value = "; " + document.cookie;
-            const parts = value.split("; " + name + "=");
-            if (parts.length === 2) return decodeURIComponent(parts.pop().split(";").shift());
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        const userId = getCookie("userId");
-        const userTitle = document.getElementById("user-title");
-        if (userId) {
-            userTitle.textContent = `${userId}님의 쇼핑리스트 🛒`;
-        }
+        window.addEventListener("DOMContentLoaded", () => {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const container = document.getElementById("cart-items");
+            const totalPriceEl = document.getElementById("total-price");
+            const summaryBox = document.getElementById("summary-box");
 
-        const cartData = getCookie("cart");
-        const cartList = document.getElementById("cart-list");
-
-        if (!cartData || cartData === "{}") {
-            cartList.innerHTML = `<div class="cart-empty">장바구니가 비어 있습니다</div>`;
-        } else {
-            const items = JSON.parse(cartData);
-            for (const [key, value] of Object.entries(items)) {
-                const itemEl = document.createElement("div");
-                itemEl.className = "cart-item";
-                itemEl.innerHTML = `
-          <div><strong>${key}</strong></div>
-          <div>${value}개</div>
-        `;
-                cartList.appendChild(itemEl);
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="empty-box">장바구니가 비어 있습니다</div>`;
+                summaryBox.style.display = "none";
+                return;
             }
-        }
+
+            let html = `<table class="table text-center align-middle"><thead class="table-light">
+      <tr><th>상품명</th><th>수량</th><th>가격</th><th>삭제</th></tr></thead><tbody>`;
+
+            const grouped = {};
+            cart.forEach(item => {
+                if (grouped[item.desc]) grouped[item.desc].count++;
+                else grouped[item.desc] = { ...item, count: 1 };
+            });
+
+            for (const key in grouped) {
+                const { img, desc, count } = grouped[key];
+                const price = 3000;
+                const subtotal = price * count;
+                total += subtotal;
+                html += `<tr>
+        <td><img src="shopping/${img}" class="product-img" />${desc}</td>
+        <td>${count}</td>
+        <td>${subtotal.toLocaleString()}원</td>
+        <td><button class="btn btn-sm btn-outline-danger" onclick="removeItem('${desc}')">🗑️</button></td>
+      </tr>`;
+            }
+
+            html += "</tbody></table>";
+            container.innerHTML = html;
+            totalPriceEl.textContent = total.toLocaleString();
+            summaryBox.style.display = "block";
+        });
 
         function checkout() {
-            const modal = new bootstrap.Modal(document.getElementById('paymentModal'));
-            modal.show();
-            document.cookie = "cart={}; path=/;";
+            const isLoggedIn = getCookie("isLoggedIn");
+            const username = getCookie("username") || "고객";
+
+            if (isLoggedIn !== "true") {
+                alert("로그인이 필요한 서비스입니다.");
+                window.location.href = "../login/login.html";
+                return;
+            }
+
+            alert(`${username}님, 주문이 완료되었습니다. 총 결제 금액: ${total.toLocaleString()}원`);
+            localStorage.removeItem("cart");
+            location.reload();
+        }
+
+        function removeItem(desc) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const newCart = cart.filter(item => item.desc !== desc);
+            localStorage.setItem("cart", JSON.stringify(newCart));
+            location.reload();
+        }
+
+        function addTestItems() {
+            const testItems = [
+                { img: "food1.png", desc: "통조림" },
+                { img: "food2.png", desc: "건빵" },
+                { img: "food3.png", desc: "탈지분유" },
+                { img: "food2.png", desc: "건빵" }
+            ];
+            localStorage.setItem("cart", JSON.stringify(testItems));
+            location.reload();
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
