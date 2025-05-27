@@ -109,12 +109,6 @@
             font-size: 1.2rem;
         }
 
-        .test-btn {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-        }
-
         footer {
             background-color: var(--primary-color);
             color: white;
@@ -128,7 +122,6 @@
 
 <body>
 
-    <!-- ✅ 로그인/회원가입 링크 (상단 고정) -->
     <div class="login-links-fixed">
         <a href="../login/login.html">로그인</a>
         <a href="../login/signup.html">회원가입</a>
@@ -170,7 +163,6 @@
     <div class="login-section">
         <div class="login-box">
             <div class="cart-title">장바구니</div>
-            <button class="btn btn-outline-secondary btn-sm test-btn" onclick="addTestItems()">🧪 테스트 상품 추가</button>
             <div id="cart-items"></div>
             <div id="summary-box" style="display: none;">
                 <div class="summary">
@@ -184,8 +176,10 @@
     </div>
 
     <footer>
-        경찰서 : 112 | 소방서 : 119 | <a href="../main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보
-            처리방침</a>
+        경찰서 : 112 | 소방서 : 119 |
+        <a href="../main/Personal_information.html" style="color: white; text-decoration:underline;">
+            개인정보 처리방침
+        </a>
     </footer>
 
     <script>
@@ -210,7 +204,7 @@
             }
 
             let html = `<table class="table text-center align-middle"><thead class="table-light">
-      <tr><th>상품명</th><th>수량</th><th>가격</th><th>삭제</th></tr></thead><tbody>`;
+        <tr><th>상품명</th><th>수량</th><th>가격</th><th>삭제</th></tr></thead><tbody>`;
 
             const grouped = {};
             cart.forEach(item => {
@@ -224,11 +218,11 @@
                 const subtotal = price * count;
                 total += subtotal;
                 html += `<tr>
-        <td><img src="shopping/${img}" class="product-img" />${desc}</td>
-        <td>${count}</td>
-        <td>${subtotal.toLocaleString()}원</td>
-        <td><button class="btn btn-sm btn-outline-danger" onclick="removeItem('${desc}')">🗑️</button></td>
-      </tr>`;
+          <td><img src="../shopping/${img}" class="product-img" />${desc}</td>
+          <td>${count}</td>
+          <td>${subtotal.toLocaleString()}원</td>
+          <td><button class="btn btn-sm btn-outline-danger" onclick="removeItem('${desc}')">🗑️</button></td>
+        </tr>`;
             }
 
             html += "</tbody></table>";
@@ -256,17 +250,6 @@
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
             const newCart = cart.filter(item => item.desc !== desc);
             localStorage.setItem("cart", JSON.stringify(newCart));
-            location.reload();
-        }
-
-        function addTestItems() {
-            const testItems = [
-                { img: "food1.png", desc: "통조림" },
-                { img: "food2.png", desc: "건빵" },
-                { img: "food3.png", desc: "탈지분유" },
-                { img: "food2.png", desc: "건빵" }
-            ];
-            localStorage.setItem("cart", JSON.stringify(testItems));
             location.reload();
         }
     </script>
