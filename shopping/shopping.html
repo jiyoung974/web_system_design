@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -75,6 +76,29 @@
       font-weight: bold;
       z-index: 1;
     }
+
+    .cart-icon-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2.5rem;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  background: #fff; /* ✅ 흰 배경 */
+  border: 1px solid #ccc; /* ✅ 얇은 회색 테두리 */
+  border-radius: 8px; /* ✅ 둥근 사각형 */
+  color: #000;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  z-index: 10;
+}
+
+.cart-icon-btn:hover {
+  background: #f7f7f7;
+}
+
+
+
+
 
     .container-custom {
       display: flex;
@@ -158,12 +182,11 @@
       margin-left: 1.5rem;
       font-size: 0.9rem;
     }
-
   </style>
 </head>
+
 <body>
 
-  <!-- 로그인/회원가입 -->
   <div class="login-links-fixed">
     <a href="../login/login.html">로그인</a>
     <a href="../login/signup.html">회원가입</a>
@@ -175,24 +198,13 @@
 
   <nav class="navbar navbar-expand-lg main-nav px-4">
     <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainNavbar"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav w-100 d-flex justify-content-evenly">
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              >재난정보</a>
-
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="../disaster/storm.html">태풍</a></li>
               <li><a class="dropdown-item" href="../disaster/earthquake.html">지진</a></li>
@@ -204,7 +216,8 @@
           <li class="nav-item"><a class="nav-link" href="/shopping/shopping.html">구호물품</a></li>
           <li class="nav-item"><a class="nav-link" href="/news/news.html">뉴스 & 정보</a></li>
           <li class="nav-item"><a class="nav-link" href="/quiz/quiz.html">퀴즈</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener noreferrer">기상청</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank"
+              rel="noopener noreferrer">기상청</a></li>
         </ul>
       </div>
     </div>
@@ -212,6 +225,7 @@
 
   <div class="hero-banner" id="heroBanner">
     <div class="hero-text" id="heroText">재난 대비 물품 판매 페이지</div>
+    <a href="cart.html" class="cart-icon-btn">🛒</a>
   </div>
 
   <div class="container-custom">
@@ -229,7 +243,7 @@
   </div>
 
   <footer>
-    경찰서 : 112 | 소방서 : 119 | <a href="Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
+    경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침
   </footer>
 
   <script>
@@ -237,12 +251,11 @@
       '식량': {
         bg: 'bg_food.png',
         items: [
-          { img: 'food1.png', desc: '통조림', },
-          { img: 'food2.png', desc: '건빵', },
-          { img: 'food3.png', desc: '탈지분유', },
-          { img: 'food4.png', desc: '생수', },
-          { img: 'food5.png', desc: '쌀', },
-
+          { img: 'food1.png', desc: '통조림' },
+          { img: 'food2.png', desc: '건빵' },
+          { img: 'food3.png', desc: '탈지분유' },
+          { img: 'food4.png', desc: '생수' },
+          { img: 'food5.png', desc: '쌀' },
         ]
       },
       '취사도구': {
@@ -263,9 +276,9 @@
       '가정용 비상약품': {
         bg: 'bg_medicine.png',
         items: [
-          { img: 'medicine1.png', desc: '소독제', },
-          { img: 'medicine2.png', desc: '진통제', },
-          { img: 'medicine3.png', desc: '붕대', },
+          { img: 'medicine1.png', desc: '소독제' },
+          { img: 'medicine2.png', desc: '진통제' },
+          { img: 'medicine3.png', desc: '붕대' },
         ]
       },
       '화생방전 대비물품': {
@@ -283,7 +296,6 @@
           { img: 'necessities2.png', desc: '휴대용 전등' },
           { img: 'necessities3.png', desc: '핫팩' },
           { img: 'necessities4.png', desc: '맥가이버칼' },
-
         ]
       }
     };
@@ -305,22 +317,22 @@
         grid.appendChild(card);
       });
     }
-      document.addEventListener("click", function (e) {
-        if (e.target && e.target.classList.contains("add-cart-btn")) {
-          const card = e.target.closest(".item-card");
-          const img = card.querySelector("img").getAttribute("src");
-          const desc = card.querySelector(".item-description").textContent;
+
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.classList.contains("add-cart-btn")) {
+        const card = e.target.closest(".item-card");
+        const img = card.querySelector("img").getAttribute("src");
+        const desc = card.querySelector(".item-description").textContent;
 
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart.push({img, desc});
+        cart.push({ img, desc });
         localStorage.setItem("cart", JSON.stringify(cart));
 
         alert(`상품이 장바구니에 추가되었습니다.`);
-    }
-      });
-    </script>
-
+      }
+    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

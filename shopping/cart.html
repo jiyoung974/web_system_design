@@ -233,7 +233,7 @@
 
         function checkout() {
             const isLoggedIn = getCookie("isLoggedIn");
-            const username = getCookie("username") || "고객";
+            const userId = getCookie("id") || "고객";
 
             if (isLoggedIn !== "true") {
                 alert("로그인이 필요한 서비스입니다.");
@@ -241,7 +241,7 @@
                 return;
             }
 
-            alert(`${userid}님, 주문이 완료되었습니다. 총 결제 금액: ${total.toLocaleString()}원`);
+            alert(`${userId}님, 주문이 완료되었습니다. 총 결제 금액: ${total.toLocaleString()}원`);
             localStorage.removeItem("cart");
             location.reload();
         }
