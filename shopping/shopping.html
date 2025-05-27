@@ -144,9 +144,31 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
+
+    .login-links-fixed {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      z-index: 9999;
+    }
+
+    .login-links-fixed a {
+      color: #003366;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- 로그인/회원가입 -->
+  <div class="login-links-fixed">
+    <a href="../login/login.html">로그인</a>
+    <a href="../login/signup.html">회원가입</a>
+  </div>
+
   <div class="top-header d-flex justify-content-center align-items-center flex-column">
     <a href="../../../main/main.html"><img src="safty365_logo.png" alt="Logo" /></a>
   </div>
