@@ -239,120 +239,107 @@
   </div>
 
   <footer>
-    경찰서 : 112 | 소방서 : 119 | 개인정보 처리방침
+    <a href="../main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a> | <a
+      href="/main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
   </footer>
 
-<!-- ✂️ 생략된 기존 HTML 구조 그대로 유지 -->
+  <script>
+    const itemData = {
+      '식량': {
+        bg: 'bg_food.png',
+        items: [
+          { img: 'food1.png', desc: '통조림', price: 3200 },
+          { img: 'food2.png', desc: '건빵', price: 1500 },
+          { img: 'food3.png', desc: '탈지분유', price: 3500 },
+          { img: 'food4.png', desc: '생수', price: 600 },
+          { img: 'food5.png', desc: '쌀', price: 18000 },
+        ]
+      },
+      '취사도구': {
+        bg: 'bg_cook.jpg',
+        items: [
+          { img: 'cook1.png', desc: '휴대용 가스레인지', price: 19000 },
+          { img: 'cook2.png', desc: '성냥 및 라이터', price: 1100 },
+          { img: 'cook3.png', desc: '부탄가스', price: 3500 },
+        ]
+      },
+      '침구 및 의류': {
+        bg: 'bg_clothes.jpeg',
+        items: [
+          { img: 'clothes1.png', desc: '담요', price: 12000 },
+          { img: 'clothes2.png', desc: '내의', price: 9500 },
+        ]
+      },
+      '가정용 비상약품': {
+        bg: 'bg_medicine.jpg',
+        items: [
+          { img: 'medicine1.png', desc: '소독제', price: 4000 },
+          { img: 'medicine2.png', desc: '진통제', price: 3200 },
+          { img: 'medicine3.png', desc: '붕대', price: 2100 },
+        ]
+      },
+      '화생방전 대비물품': {
+        bg: 'bg_supplies.jpg',
+        items: [
+          { img: 'supplies1.png', desc: '방독면', price: 35000 },
+          { img: 'supplies2.png', desc: '보호의', price: 27000 },
+          { img: 'supplies3.png', desc: '접착테이프', price: 2500 },
+        ]
+      },
+      '그 외 생필품': {
+        bg: 'bg_necessities.png',
+        items: [
+          { img: 'necessities1.png', desc: '라디오', price: 25000 },
+          { img: 'necessities2.png', desc: '휴대용 전등', price: 10000 },
+          { img: 'necessities3.png', desc: '핫팩', price: 1000 },
+          { img: 'necessities4.png', desc: '맥가이버칼', price: 8700 },
+        ]
+      }
+    };
 
-<script>
-  const itemData = {
-    // ✅ 기존 itemData는 그대로 유지
-    '식량': {
-      bg: 'bg_food.png',
-      items: [
-        { img: 'food1.png', desc: '통조림' },
-        { img: 'food2.png', desc: '건빵' },
-        { img: 'food3.png', desc: '탈지분유' },
-        { img: 'food4.png', desc: '생수' },
-        { img: 'food5.png', desc: '쌀' },
-      ]
-    },
-    '취사도구': {
-      bg: 'bg_cook.jpg',
-      items: [
-        { img: 'cook1.png', desc: '휴대용 가스레인지' },
-        { img: 'cook2.png', desc: '성냥 및 라이터' },
-        { img: 'cook3.png', desc: '부탄가스' },
-      ]
-    },
-    '침구 및 의류': {
-      bg: 'bg_clothes.jpeg',
-      items: [
-        { img: 'clothes1.png', desc: '담요' },
-        { img: 'clothes2.png', desc: '내의' },
-      ]
-    },
-    '가정용 비상약품': {
-      bg: 'bg_medicine.jpg',
-      items: [
-        { img: 'medicine1.png', desc: '소독제' },
-        { img: 'medicine2.png', desc: '진통제' },
-        { img: 'medicine3.png', desc: '붕대' },
-      ]
-    },
-    '화생방전 대비물품': {
-      bg: 'bg_supplies.jpg',
-      items: [
-        { img: 'supplies1.png', desc: '방독면' },
-        { img: 'supplies2.png', desc: '보호의' },
-        { img: 'supplies3.png', desc: '접착테이프' },
-      ]
-    },
-    '그 외 생필품': {
-      bg: 'bg_necessities.png',
-      items: [
-        { img: 'necessities1.png', desc: '라디오' },
-        { img: 'necessities2.png', desc: '휴대용 전등' },
-        { img: 'necessities3.png', desc: '핫팩' },
-        { img: 'necessities4.png', desc: '맥가이버칼' },
-      ]
+    function showItem(category) {
+      const data = itemData[category];
+      document.querySelector('#heroBanner').style.backgroundImage = `url(${data.bg})`;
+      document.querySelector('#heroText').textContent = category;
+      const grid = document.getElementById('itemGrid');
+      grid.innerHTML = '';
+      data.items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.innerHTML = `
+            <div class="item-description" style="text-align: center; font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: #212529;">${item.desc}</div>
+            <img src="${item.img}" alt="상품이미지" style="margin-bottom: 1.2rem;">
+            <div class="item-price" style="text-align: center; font-size: 1rem; color: #333; margin-bottom: 0.75rem;">가격: ${item.price.toLocaleString()}원</div>
+            <div style="text-align: center;">
+              <button class="add-cart-btn">장바구니 담기</button>
+            </div>
+          `;
+        grid.appendChild(card);
+      });
     }
-  };
 
-  function showItem(category) {
-    const data = itemData[category];
-    document.querySelector('#heroBanner').style.backgroundImage = `url(${data.bg})`;
-    document.querySelector('#heroText').textContent = category;
-    const grid = document.getElementById('itemGrid');
-    grid.innerHTML = '';
-    data.items.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'item-card';
-      card.innerHTML = `
-        <img src="${item.img}" alt="상품이미지">
-        <div class="item-description">${item.desc}</div>
-        <button class="add-cart-btn">장바구니 담기</button>
-      `;
-      grid.appendChild(card);
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.classList.contains("add-cart-btn")) {
+        const card = e.target.closest(".item-card");
+        const img = card.querySelector("img").getAttribute("src");
+        const desc = card.querySelector(".item-description").textContent;
+
+        const item = Object.values(itemData).flatMap(c => c.items).find(i => i.desc === desc);
+        if (!item) return;
+        const price = item.price;
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ img, desc, price });
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(`상품이 장바구니에 추가되었습니다.`);
+      }
     });
-  }
-
-  document.addEventListener("click", function (e) {
-    if (e.target && e.target.classList.contains("add-cart-btn")) {
-      const card = e.target.closest(".item-card");
-      const img = card.querySelector("img").getAttribute("src");
-      const desc = card.querySelector(".item-description").textContent;
-
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push({ img, desc });
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      alert(`상품이 장바구니에 추가되었습니다.`);
-    }
-  });
-
-  // ✅ 로그인 상태 체크 → 로그아웃 링크로 교체
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
-
-  function logout() {
-    document.cookie = "isLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    alert("로그아웃 되었습니다.");
-    location.reload();
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const loginLinks = document.querySelector(".login-links-fixed");
-    const isLoggedIn = getCookie("isLoggedIn");
-
-    if (isLoggedIn === "true" && loginLinks) {
-      loginLinks.innerHTML = `<a href="#" onclick="logout()">로그아웃</a>`;
-    }
-  });
-</script>
+  </script>
+  
+  
+  
+  
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
