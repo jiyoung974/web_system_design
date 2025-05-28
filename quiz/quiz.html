@@ -53,7 +53,6 @@
             max-width: 800px;
             min-height: 300px;
             position: relative;
-            
         }
 
         .quiz-title {
@@ -73,8 +72,6 @@
             transition: background-color 0.3s ease;
             max-width: 500px;
             margin: 1.5rem auto;
-            
-
         }
 
         .quiz-option:hover {
@@ -108,7 +105,6 @@
 </head>
 
 <body>
-
     <!-- 헤더 -->
     <div class="top-header d-flex justify-content-center align-items-center flex-column">
         <a href="../main/main.html">
@@ -164,10 +160,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
                 </div>
                 <div class="modal-body">
-                    퀴즈가 끝났습니다! 수고하셨습니다 😊
+                    퀴즈가 끝났습니다😊 <br>
+                    <strong id="score-text"></strong>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">확인</button>
+                    <button type="button" class="btn btn-success" id="retry-btn">다시 풀기</button>
                 </div>
             </div>
         </div>
@@ -175,9 +172,9 @@
 
     <!-- 푸터 -->
     <footer>
-        <a href="../main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a>&nbsp;&nbsp;|
-        &nbsp;&nbsp;<a href="../main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보
-            처리방침</a>
+        <a href="../main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호
+            안내</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="../main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
         &nbsp;&nbsp;|&nbsp;&nbsp;© 2025 Safety 365
     </footer>
 
@@ -188,18 +185,18 @@
             {
                 question: "지진이 발생했을 때 가장 먼저 해야 할 행동은 무엇인가요?",
                 options: ["건물 밖으로 즉시 뛰쳐나간다", "가까운 탁자 아래로 몸을 숨긴다", "창문을 열고 상황을 본다"],
-                answer: 1
+                answer: 1,
             },
             {
                 question: "태풍이 접근할 때 가장 적절한 행동은?",
                 options: ["강 근처로 가서 상황을 확인한다", "창문을 열어 환기를 시킨다", "문과 창문을 단단히 닫고 실내에 머무른다"],
-                answer: 2
+                answer: 2,
             },
             {
                 question: "화재가 발생했을 때 엘리베이터를 타도 될까요?",
                 options: ["네, 더 빨리 대피할 수 있으므로 탑니다", "아니요, 정전 시 갇힐 위험이 있으므로 계단을 이용합니다", "건물 옥상으로 대피하여 구조를 기다립니다"],
-                answer: 1
-            }
+                answer: 1,
+            },
         ];
 
         function shuffle(array) {
@@ -210,48 +207,65 @@
             return array;
         }
 
-        const shuffledQuiz = shuffle([...quizData]);
+        let shuffledQuiz = shuffle([...quizData]);
         let currentQuestion = 0;
-        const questionEl = document.getElementById('question');
-        const optionsEl = document.getElementById('options');
-        const nextBtn = document.getElementById('next-btn');
+        let correctCount = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const nextBtn = document.getElementById("next-btn");
 
         function loadQuestion() {
             const current = shuffledQuiz[currentQuestion];
             questionEl.textContent = current.question;
-            questionEl.className = 'quiz-title';
-            optionsEl.innerHTML = '';
+            questionEl.className = "quiz-title";
+            optionsEl.innerHTML = "";
             current.options.forEach((opt, idx) => {
-                const div = document.createElement('div');
-                div.className = 'quiz-option';
+                const div = document.createElement("div");
+                div.className = "quiz-option";
                 div.textContent = `${idx + 1}. ${opt}`;
-                div.addEventListener('click', () => handleAnswer(div, idx));
+                div.addEventListener("click", () => handleAnswer(div, idx));
                 optionsEl.appendChild(div);
             });
-            nextBtn.style.display = 'none';
+            nextBtn.style.display = "none";
         }
 
         function handleAnswer(selectedDiv, idx) {
-            const allOptions = document.querySelectorAll('.quiz-option');
-            allOptions.forEach(opt => opt.style.pointerEvents = 'none');
+            const allOptions = document.querySelectorAll(".quiz-option");
+            allOptions.forEach((opt) => (opt.style.pointerEvents = "none"));
             if (idx === shuffledQuiz[currentQuestion].answer) {
-                selectedDiv.classList.add('correct');
+                selectedDiv.classList.add("correct");
+                correctCount++;
             } else {
-                selectedDiv.classList.add('wrong');
-                allOptions[shuffledQuiz[currentQuestion].answer].classList.add('correct');
+                selectedDiv.classList.add("wrong");
+                allOptions[shuffledQuiz[currentQuestion].answer].classList.add("correct");
             }
-            nextBtn.style.display = 'inline-block';
+            nextBtn.style.display = "inline-block";
         }
 
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener("click", () => {
             currentQuestion++;
             if (currentQuestion < shuffledQuiz.length) {
                 loadQuestion();
             } else {
-                const modal = new bootstrap.Modal(document.getElementById('endModal'));
+                document.getElementById("score-text").textContent = `맞은 개수: (${correctCount}/${shuffledQuiz.length})`;
+                const modal = new bootstrap.Modal(document.getElementById("endModal"));
                 modal.show();
             }
         });
+
+        document.getElementById("retry-btn").addEventListener("click", () => {
+            const modalElement = bootstrap.Modal.getInstance(document.getElementById("endModal"));
+            modalElement.hide();
+            resetQuiz();
+        });
+
+        function resetQuiz() {
+            shuffledQuiz = shuffle([...quizData]);
+            currentQuestion = 0;
+            correctCount = 0;
+            loadQuestion();
+        }
 
         loadQuestion();
     </script>
