@@ -72,6 +72,7 @@
             transition: background-color 0.3s ease;
             max-width: 500px;
             margin: 1.5rem auto;
+            border: 1px solid transparent;
         }
 
         .quiz-option:hover {
@@ -91,6 +92,8 @@
         .next-btn {
             text-align: right;
             margin-top: 2rem;
+            min-height: 50px;
+            /* 고정 높이로 크기 튐 방지 */
         }
 
         footer {
@@ -160,7 +163,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
                 </div>
                 <div class="modal-body">
-                    퀴즈가 끝났습니다😊 <br>
+                    퀴즈가 끝났습니다! 수고하셨습니다 😊<br />
                     <strong id="score-text"></strong>
                 </div>
                 <div class="modal-footer justify-content-center">
