@@ -186,20 +186,95 @@
     <script>
         const quizData = [
             {
-                question: "지진이 발생했을 때 가장 먼저 해야 할 행동은 무엇인가요?",
-                options: ["건물 밖으로 즉시 뛰쳐나간다", "가까운 탁자 아래로 몸을 숨긴다", "창문을 열고 상황을 본다"],
-                answer: 1,
+                question: "지진이 발생했을 때 가장 올바른 행동은 무엇인가요?",
+                options: [
+                    "창문을 열고 밖으로 달려간다",
+                    "책상 아래나 튼튼한 가구 밑으로 들어가 몸을 보호한다",
+                    "엘리베이터를 이용해 지하로 대피한다"
+                ],
+                answer: 1
             },
             {
-                question: "태풍이 접근할 때 가장 적절한 행동은?",
-                options: ["강 근처로 가서 상황을 확인한다", "창문을 열어 환기를 시킨다", "문과 창문을 단단히 닫고 실내에 머무른다"],
-                answer: 2,
+                question: "다음 중 태풍이 오기 전 가장 적절한 대비 방법은?",
+                options: [
+                    "창문을 활짝 열어 환기시킨다",
+                    "비상용품과 식수를 미리 준비해둔다",
+                    "바깥 물건을 치우지 않고 그대로 둔다"
+                ],
+                answer: 1
             },
             {
-                question: "화재가 발생했을 때 엘리베이터를 타도 될까요?",
-                options: ["네, 더 빨리 대피할 수 있으므로 탑니다", "아니요, 정전 시 갇힐 위험이 있으므로 계단을 이용합니다", "건물 옥상으로 대피하여 구조를 기다립니다"],
-                answer: 1,
+                question: "황사 발생 시 실내에서 해야 할 행동은?",
+                options: [
+                    "창문을 열어 환기한다",
+                    "마스크를 벗고 깊게 숨을 쉰다",
+                    "창문을 닫고 공기청정기나 젖은 수건을 활용한다"
+                ],
+                answer: 2
             },
+            {
+                question: "산불이 발생했을 때 가장 위험한 행동은?",
+                options: [
+                    "산불을 발견하면 119에 신고한다",
+                    "젖은 수건으로 입과 코를 막는다",
+                    "불길을 피해 바람이 부는 방향으로 도망간다"
+                ],
+                answer: 2
+            },
+            {
+                question: "지진 대비를 위해 평소 준비해둘 물품이 아닌 것은?",
+                options: [
+                    "손전등",
+                    "응급약품",
+                    "수영복"
+                ],
+                answer: 2
+            },
+            {
+                question: "태풍이 지나간 직후 바람이 잠잠해졌다면 어떻게 해야 하나요?",
+                options: [
+                    "밖에 나가 피해 상황을 확인한다",
+                    "아직 위험할 수 있으므로 방송 지시에 따라 행동한다",
+                    "창문을 활짝 열고 집을 환기한다"
+                ],
+                answer: 1
+            },
+            {
+                question: "황사 마스크로 적절한 것은 무엇인가요?",
+                options: [
+                    "천 마스크",
+                    "KF80 이상 보건용 마스크",
+                    "면 마스크"
+                ],
+                answer: 1
+            },
+            {
+                question: "산불 예방을 위한 올바른 행동은?",
+                options: [
+                    "건조한 날에 논밭에서 쓰레기를 태운다",
+                    "캠핑 후 모닥불을 남겨둔다",
+                    "산림 근처에서 인화물질 취급을 자제한다"
+                ],
+                answer: 2
+            },
+            {
+                question: "지진 발생 후 밖으로 대피했다면 가장 적절한 장소는?",
+                options: [
+                    "고층 빌딩 주변",
+                    "전신주, 유리창 근처",
+                    "넓은 공터나 운동장"
+                ],
+                answer: 2
+            },
+            {
+                question: "태풍이나 강풍이 예상될 때 차량 운행을 피해야 하는 가장 큰 이유는?",
+                options: [
+                    "전복 및 침수 위험이 있기 때문이다",
+                    "연비가 나빠지기 때문이다",
+                    "길이 미끄러워 타이어가 닳기 때문이다"
+                ],
+                answer: 0
+            }
         ];
 
         function shuffle(array) {
@@ -210,7 +285,7 @@
             return array;
         }
 
-        let shuffledQuiz = shuffle([...quizData]);
+        let shuffledQuiz = shuffle([...quizData]).slice(0, 5);
         let currentQuestion = 0;
         let correctCount = 0;
 
@@ -251,7 +326,7 @@
             if (currentQuestion < shuffledQuiz.length) {
                 loadQuestion();
             } else {
-                document.getElementById("score-text").textContent = `맞은 개수: (${correctCount}/${shuffledQuiz.length})`;
+                document.getElementById("score-text").textContent = `(${correctCount}/${shuffledQuiz.length})`;
                 const modal = new bootstrap.Modal(document.getElementById("endModal"));
                 modal.show();
             }
@@ -260,18 +335,16 @@
         document.getElementById("retry-btn").addEventListener("click", () => {
             const modalElement = bootstrap.Modal.getInstance(document.getElementById("endModal"));
             modalElement.hide();
-            resetQuiz();
-        });
-
-        function resetQuiz() {
-            shuffledQuiz = shuffle([...quizData]);
+            shuffledQuiz = shuffle([...quizData]).slice(0, 5);
             currentQuestion = 0;
             correctCount = 0;
             loadQuestion();
-        }
+        });
 
         loadQuestion();
     </script>
+      
+      
 </body>
 
 </html>
