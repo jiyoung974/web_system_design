@@ -137,9 +137,11 @@
     }
 
     .item-card img {
-      width: 100%;
+      width: 70%;
       height: auto;
       border-radius: 8px;
+      display: block;
+      margin: 0 auto;
     }
 
     .item-description {
@@ -242,7 +244,6 @@
     <a href="../main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a> | <a
       href="/main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
   </footer>
-
   <script>
     const itemData = {
       '식량': {
@@ -307,9 +308,9 @@
         const card = document.createElement('div');
         card.className = 'item-card';
         card.innerHTML = `
-            <div class="item-description" style="text-align: center; font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: #212529;">${item.desc}</div>
-            <img src="${item.img}" alt="상품이미지" style="margin-bottom: 1.2rem;">
-            <div class="item-price" style="text-align: center; font-size: 1rem; color: #333; margin-bottom: 0.75rem;">가격: ${item.price.toLocaleString()}원</div>
+            <div class="item-description" style="text-align: center; font-weight: 600; font-size: 1.1rem; margin-bottom: 1.5rem; color: #212529;">${item.desc}</div>
+            <img src="${item.img}" alt="상품이미지" style="margin-bottom: 1.5rem;">
+            <div class="item-price" style="text-align: center; font-size: 1rem; color: #333; margin-bottom: 1rem;">${item.price.toLocaleString()}원</div>
             <div style="text-align: center;">
               <button class="add-cart-btn">장바구니 담기</button>
             </div>
@@ -335,9 +336,29 @@
         alert(`상품이 장바구니에 추가되었습니다.`);
       }
     });
+
+    // 로그인 상태에 따라 로그아웃 링크로 변경
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function logout() {
+      document.cookie = "isLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      alert("로그아웃 되었습니다.");
+      location.reload();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginLinks = document.querySelector(".login-links-fixed");
+      const isLoggedIn = getCookie("isLoggedIn");
+
+      if (isLoggedIn === "true" && loginLinks) {
+        loginLinks.innerHTML = `<a href="#" onclick="logout()">로그아웃</a>`;
+      }
+    });
   </script>
-  
-  
   
   
 

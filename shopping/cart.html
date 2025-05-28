@@ -180,90 +180,91 @@
             href="/main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
         </footer>
 
-    <script>
-        let total = 0;
+        <script>
+            let total = 0;
 
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
-        window.addEventListener("DOMContentLoaded", () => {
-            const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const container = document.getElementById("cart-items");
-            const totalPriceEl = document.getElementById("total-price");
-            const summaryBox = document.getElementById("summary-box");
-
-            if (cart.length === 0) {
-                container.innerHTML = `<div class="empty-box">장바구니가 비어 있습니다</div>`;
-                summaryBox.style.display = "none";
-                return;
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
             }
 
-            let html = `<table class="table text-center align-middle"><thead class="table-light">
-      <tr><th>상품명</th><th>수량</th><th>가격</th><th>삭제</th></tr></thead><tbody>`;
+            window.addEventListener("DOMContentLoaded", () => {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const container = document.getElementById("cart-items");
+                const totalPriceEl = document.getElementById("total-price");
+                const summaryBox = document.getElementById("summary-box");
 
-            const grouped = {};
-            cart.forEach(item => {
-                if (grouped[item.desc]) grouped[item.desc].count++;
-                else grouped[item.desc] = { ...item, count: 1 };
+                if (cart.length === 0) {
+                    container.innerHTML = `<div class="empty-box">장바구니가 비어 있습니다</div>`;
+                    summaryBox.style.display = "none";
+                    return;
+                }
+
+                let html = `<table class="table text-center align-middle">
+                <thead class="table-light">
+                <tr><th>상품명</th><th>수량</th><th>가격</th><th>삭제</th></tr>
+                </thead><tbody>`;
+
+                const grouped = {};
+                cart.forEach(item => {
+                    if (grouped[item.desc]) grouped[item.desc].count++;
+                    else grouped[item.desc] = { ...item, count: 1 };
+                });
+
+                for (const key in grouped) {
+                    const { img, desc, price, count } = grouped[key];
+                    const subtotal = price * count;
+                    total += subtotal;
+                    html += `<tr>
+                <td><img src="../shopping/${img}" class="product-img" />${desc}</td>
+                <td>${count}</td>
+                <td>${subtotal.toLocaleString()}원</td>
+                <td><button class="btn btn-sm btn-outline-danger" onclick="removeItem('${desc}')">🗑️</button></td>
+                </tr>`;
+                }
+
+                html += "</tbody></table>";
+                container.innerHTML = html;
+                totalPriceEl.textContent = total.toLocaleString();
+                summaryBox.style.display = "block";
             });
 
-            for (const key in grouped) {
-                const { img, desc, count } = grouped[key];
-                const price = 3000;
-                const subtotal = price * count;
-                total += subtotal;
-                html += `<tr>
-          <td><img src="../shopping/${img}" class="product-img" />${desc}</td>
-          <td>${count}</td>
-          <td>${subtotal.toLocaleString()}원</td>
-          <td><button class="btn btn-sm btn-outline-danger" onclick="removeItem('${desc}')">🗑️</button></td>
-        </tr>`;
+            function checkout() {
+                const isLoggedIn = getCookie("isLoggedIn");
+                if (isLoggedIn !== "true") {
+                    alert("로그인이 필요한 서비스입니다.");
+                    window.location.href = "../login/login.html";
+                    return;
+                }
+                alert(`주문이 완료되었습니다. 총 결제 금액: ${total.toLocaleString()}원`);
+                localStorage.removeItem("cart");
+                location.reload();
             }
 
-            html += "</tbody></table>";
-            container.innerHTML = html;
-            totalPriceEl.textContent = total.toLocaleString();
-            summaryBox.style.display = "block";
-        });
-
-        function checkout() {
-            const isLoggedIn = getCookie("isLoggedIn");
-            if (isLoggedIn !== "true") {
-                alert("로그인이 필요한 서비스입니다.");
-                window.location.href = "../login/login.html";
-                return;
+            function removeItem(desc) {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const newCart = cart.filter(item => item.desc !== desc);
+                localStorage.setItem("cart", JSON.stringify(newCart));
+                location.reload();
             }
-            alert(`주문이 완료되었습니다. 총 결제 금액: ${total.toLocaleString()}원`);
-            localStorage.removeItem("cart");
-            location.reload();
-        }
 
-        function removeItem(desc) {
-            const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const newCart = cart.filter(item => item.desc !== desc);
-            localStorage.setItem("cart", JSON.stringify(newCart));
-            location.reload();
-        }
+            document.addEventListener("DOMContentLoaded", () => {
+                const loginLinks = document.querySelector(".login-links-fixed");
+                const isLoggedIn = getCookie("isLoggedIn");
 
-        // ✅ 로그인 상태에 따라 상단 우측 링크 변경
-        document.addEventListener("DOMContentLoaded", () => {
-            const loginLinks = document.querySelector(".login-links-fixed");
-            const isLoggedIn = getCookie("isLoggedIn");
+                if (isLoggedIn === "true" && loginLinks) {
+                    loginLinks.innerHTML = `<a href="#" onclick="logout()">로그아웃</a>`;
+                }
+            });
 
-            if (isLoggedIn === "true" && loginLinks) {
-                loginLinks.innerHTML = `<a href="#" onclick="logout()">로그아웃</a>`;
+            function logout() {
+                document.cookie = "isLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                alert("로그아웃 되었습니다.");
+                location.reload();
             }
-        });
-
-        function logout() {
-            document.cookie = "isLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            alert("로그아웃 되었습니다.");
-            location.reload();
-        }
-    </script>
+        </script>
+        
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
