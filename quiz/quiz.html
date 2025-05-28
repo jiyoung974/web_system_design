@@ -163,7 +163,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
                 </div>
                 <div class="modal-body">
-                    퀴즈가 끝났습니다! 수고하셨습니다 😊<br />
+                    퀴즈가 끝났습니다!<br />
                     <strong id="score-text"></strong>
                 </div>
                 <div class="modal-footer justify-content-center">
@@ -326,7 +326,7 @@
             if (currentQuestion < shuffledQuiz.length) {
                 loadQuestion();
             } else {
-                document.getElementById("score-text").textContent = `(${correctCount}/${shuffledQuiz.length})`;
+                document.getElementById("score-text").textContent = `점수 : (${correctCount}/${shuffledQuiz.length})`;
                 const modal = new bootstrap.Modal(document.getElementById("endModal"));
                 modal.show();
             }
