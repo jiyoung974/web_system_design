@@ -83,9 +83,9 @@
       right: 2.5rem;
       font-size: 1.2rem;
       padding: 6px 10px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      background: #fff; /* ✅ 흰 배경 */
+      border: 1px solid #ccc; /* ✅ 얇은 회색 테두리 */
+      border-radius: 8px; /* ✅ 둥근 사각형 */
       color: #000;
       text-decoration: none;
       transition: background 0.2s ease;
@@ -144,6 +144,20 @@
       margin: 0 auto;
     }
 
+    .item-description {
+      font-size: 0.95rem;
+      margin: 0.75rem 0;
+    }
+
+    .add-cart-btn {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.9rem;
+      border-radius: 6px;
+    }
+
     footer {
       background-color: var(--primary-color);
       color: white;
@@ -152,10 +166,30 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
+
+    .login-links-fixed {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      z-index: 9999;
+    }
+
+    .login-links-fixed a {
+      color: #003366;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
 <body>
+
+  <div class="login-links-fixed">
+    <a href="../login/login.html">로그인</a>
+    <a href="../login/signup.html">회원가입</a>
+  </div>
+
   <div class="top-header d-flex justify-content-center align-items-center flex-column">
     <a href="../../../main/main.html"><img src="safty365_logo.png" alt="Logo" /></a>
   </div>
@@ -167,10 +201,21 @@
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav w-100 d-flex justify-content-evenly">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../disaster/storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="../disaster/earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="../disaster/dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="../disaster/fire.html">산불</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="/map/map.html">대피소 안내</a></li>
           <li class="nav-item"><a class="nav-link" href="/shopping/shopping.html">구호물품</a></li>
           <li class="nav-item"><a class="nav-link" href="/news/news.html">뉴스 & 정보</a></li>
           <li class="nav-item"><a class="nav-link" href="/quiz/quiz.html">퀴즈</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank"
+              rel="noopener noreferrer">기상청</a></li>
         </ul>
       </div>
     </div>
@@ -186,40 +231,12 @@
       <button class="btn btn-outline-secondary" onclick="showItem('식량')">식량</button>
       <button class="btn btn-outline-secondary" onclick="showItem('취사도구')">취사도구</button>
       <button class="btn btn-outline-secondary" onclick="showItem('침구 및 의류')">침구 및 의류</button>
+      <button class="btn btn-outline-secondary" onclick="showItem('가정용 비상약품')">가정용 비상약품</button>
+      <button class="btn btn-outline-secondary" onclick="showItem('화생방전 대비물품')">화생방전 대비물품</button>
+      <button class="btn btn-outline-secondary" onclick="showItem('그 외 생필품')">그 외 생필품</button>
     </div>
-
     <div class="content" id="itemContent">
-      <div id="defaultPromo" class="text-center p-5"
-        style="background:#fff6f2; border:1px solid #ffddcc; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.05); max-width:600px; margin:0 auto;">
-        <div style="font-size: 2.2rem;">🫯</div>
-        <h3 style="color:#cc0000; font-weight: 700; margin-top: 1rem;">재난 대비 필수품, 지금 준비하세요!</h3>
-        <p style="color: #444; font-size: 1.05rem; margin: 1rem 0 0 0;">언제 닥칠지 모르는 위기 상황,</p>
-        <p style="color: #444; font-size: 1.05rem; margin: 0;">지금 미리 준비하면 안심!</p>
-        <button class="btn btn-danger mt-4 px-4 py-2" onclick="showItem('식량')" style="font-size: 1rem;">🔥 인기 물품
-          보러가기</button>
-      </div>
-
-      <div class="d-flex align-items-center gap-4 mt-5"
-        style="background:#fff3f3; border:1px solid #f8c4c4; border-radius:15px; padding:1.5rem;">
-        <img src="food1.png" alt="통조림" style="width:100px; border-radius:10px;">
-        <div class="text-start">
-          <h5 style="color:#cc0000; font-weight:bold;">[오늘만 특가] 통조림 20% 할인!</h5>
-          <p style="margin:0; color:#555;">재난 대비 필수 식량! 유통기한 5년 이상</p>
-          <button class="btn btn-danger btn-sm mt-2" onclick="showItem('식량')">자세히 보기</button>
-        </div>
-      </div>
-
-      <div class="d-flex align-items-center gap-4 mt-4"
-        style="background:#f1f8ff; border:1px solid #b6d7ff; border-radius:15px; padding:1.5rem;">
-        <img src="medicine1.png" alt="소독제" style="width:100px; border-radius:10px;">
-        <div class="text-start">
-          <h5 style="color:#0066cc; font-weight:bold;">🏱 응급소독제 무료증정 이벤트</h5>
-          <p style="margin:0; color:#555;">비상약품 세트 구매 시 소독제 1개 무료!</p>
-          <button class="btn btn-primary btn-sm mt-2" onclick="showItem('가정용 비상약품')">응급세트 보러가기</button>
-        </div>
-      </div>
-
-      <div id="itemGrid" class="item-grid" style="margin-top:3rem;"></div>
+      <div class="item-grid" id="itemGrid"></div>
     </div>
   </div>
 
@@ -229,6 +246,126 @@
       처리방침</a>
     &nbsp;&nbsp;|&nbsp;&nbsp;© 2025 Safety 365
   </footer>
+  
+  <script>
+    const itemData = {
+      '식량': {
+        bg: 'bg_food.png',
+        items: [
+          { img: 'food1.png', desc: '통조림', price: 3200 },
+          { img: 'food2.png', desc: '건빵', price: 1500 },
+          { img: 'food3.png', desc: '탈지분유', price: 3500 },
+          { img: 'food4.png', desc: '생수', price: 600 },
+          { img: 'food5.png', desc: '쌀', price: 18000 },
+        ]
+      },
+      '취사도구': {
+        bg: 'bg_cook.jpg',
+        items: [
+          { img: 'cook1.png', desc: '휴대용 가스레인지', price: 19000 },
+          { img: 'cook2.png', desc: '성냥 및 라이터', price: 1100 },
+          { img: 'cook3.png', desc: '부탄가스', price: 3500 },
+        ]
+      },
+      '침구 및 의류': {
+        bg: 'bg_clothes.jpeg',
+        items: [
+          { img: 'clothes1.png', desc: '담요', price: 12000 },
+          { img: 'clothes2.png', desc: '내의', price: 9500 },
+        ]
+      },
+      '가정용 비상약품': {
+        bg: 'bg_medicine.jpg',
+        items: [
+          { img: 'medicine1.png', desc: '소독제', price: 4000 },
+          { img: 'medicine2.png', desc: '진통제', price: 3200 },
+          { img: 'medicine3.png', desc: '붕대', price: 2100 },
+        ]
+      },
+      '화생방전 대비물품': {
+        bg: 'bg_supplies.jpg',
+        items: [
+          { img: 'supplies1.png', desc: '방독면', price: 35000 },
+          { img: 'supplies2.png', desc: '보호의', price: 27000 },
+          { img: 'supplies3.png', desc: '접착테이프', price: 2500 },
+        ]
+      },
+      '그 외 생필품': {
+        bg: 'bg_necessities.png',
+        items: [
+          { img: 'necessities1.png', desc: '라디오', price: 25000 },
+          { img: 'necessities2.png', desc: '휴대용 전등', price: 10000 },
+          { img: 'necessities3.png', desc: '핫팩', price: 1000 },
+          { img: 'necessities4.png', desc: '맥가이버칼', price: 8700 },
+        ]
+      }
+    };
+
+    function showItem(category) {
+      const data = itemData[category];
+      document.querySelector('#heroBanner').style.backgroundImage = `url(${data.bg})`;
+      document.querySelector('#heroText').textContent = category;
+      const grid = document.getElementById('itemGrid');
+      grid.innerHTML = '';
+      data.items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.innerHTML = `
+            <div class="item-description" style="text-align: center; font-weight: 600; font-size: 1.1rem; margin-bottom: 1.5rem; color: #212529;">${item.desc}</div>
+            <img src="${item.img}" alt="상품이미지" style="margin-bottom: 1.5rem;">
+            <div class="item-price" style="text-align: center; font-size: 1rem; color: #333; margin-bottom: 1rem;">${item.price.toLocaleString()}원</div>
+            <div style="text-align: center;">
+              <button class="add-cart-btn">장바구니 담기</button>
+            </div>
+          `;
+        grid.appendChild(card);
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.classList.contains("add-cart-btn")) {
+        const card = e.target.closest(".item-card");
+        const img = card.querySelector("img").getAttribute("src");
+        const desc = card.querySelector(".item-description").textContent;
+
+        const item = Object.values(itemData).flatMap(c => c.items).find(i => i.desc === desc);
+        if (!item) return;
+        const price = item.price;
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ img, desc, price });
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(`상품이 장바구니에 추가되었습니다.`);
+      }
+    });
+
+    // 로그인 상태에 따라 로그아웃 링크로 변경
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function logout() {
+      document.cookie = "isLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      alert("로그아웃 되었습니다.");
+      location.reload();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginLinks = document.querySelector(".login-links-fixed");
+      const isLoggedIn = getCookie("isLoggedIn");
+
+      if (isLoggedIn === "true" && loginLinks) {
+        loginLinks.innerHTML = `<a href="#" onclick="logout()">로그아웃</a>`;
+      }
+    });
+  </script>
+  
+  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
