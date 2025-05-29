@@ -57,19 +57,30 @@
 
     .carousel-inner {
       display: flex;
-      overflow: hidden;
-      width: 100%;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0 0.5rem;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0.5rem;
     }
 
     .news-card {
-      min-width: 300px;
-      max-width: 300px;
-      margin-right: 1rem;
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 360px;  /* 아이폰 12 Pro 화면보다 살짝 작게 */
+      margin: 0 0.5rem;
       border: 1px solid #ccc;
       border-radius: 10px;
       background-color: white;
-      flex-shrink: 0;
+      scroll-snap-align: center;
     }
+
+    @media (max-width: 400px) {
+      .news-card {
+        max-width: 90vw;
+      }
+    }
+
 
     .news-card img {
       width: 100%;
@@ -154,13 +165,15 @@
     const cardWidth = 320;
 
     function scrollNext() {
+      const cardWidth = carousel.querySelector('.news-card')?.offsetWidth || 360;
       currentIndex = (currentIndex + 1) % totalCards;
-      carousel.scrollTo({ left: currentIndex * cardWidth, behavior: 'smooth' });
+      carousel.scrollTo({ left: currentIndex * (cardWidth + 16), behavior: 'smooth' }); // 16은 margin 고려
     }
 
     function scrollPrev() {
+      const cardWidth = carousel.querySelector('.news-card')?.offsetWidth || 360;
       currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-      carousel.scrollTo({ left: currentIndex * cardWidth, behavior: 'smooth' });
+      carousel.scrollTo({ left: currentIndex * (cardWidth + 16), behavior: 'smooth' });
     }
 
     async function loadDisasterNews() {
