@@ -48,7 +48,7 @@
     }
 
     .hero-banner {
-      background-image: url('../dust1.jpg'); /* 지진용 배너 이미지로 교체 필요 */
+      background-image: url('../dust1.jpg');
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -101,22 +101,22 @@
       max-width: calc(100% - 220px - 2.5rem);
     }
 
-  h2 {
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-  }
+    h2 {
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+    }
 
     #checklist {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 0 auto;
     }
 
     .checklist-item {
-      flex: 0 0 30%;
       background-color: #f8f9fa;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
@@ -124,8 +124,8 @@
       border-radius: 10px;
       padding: 1.5rem;
       box-sizing: border-box;
-      max-width: calc(33.33% - 1rem);
       text-align: center;
+      word-break: keep-all;
     }
 
     .checklist-item:hover {
@@ -149,18 +149,19 @@
     .checklist-item h5 {
       font-size: 1rem;
       margin-bottom: 0.3rem;
+      word-break: keep-all;
     }
 
     .checklist-item p {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  min-height: 2.5rem; /* ✅ 한 줄일 때도 공간 확보 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      min-height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-break: keep-all;
+    }
 
     footer {
       background-color: var(--primary-color);
@@ -172,18 +173,55 @@
     }
 
     @media (max-width: 992px) {
-      .checklist-item {
-        max-width: calc(50% - 1rem);
+      #checklist {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 576px) {
-      .checklist-item {
+      .container-custom {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1rem;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .sidebar .btn {
+        width: 48%;
+        font-size: 0.9rem;
+      }
+
+      .content {
+        width: 100%;
+        padding: 0 1rem;
         max-width: 100%;
       }
+
+      #checklist {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        margin: 0 auto;
+      }
+
+      h2 {
+        text-align: center;
+        white-space: nowrap;
+        font-size: 1.2rem;
+      }
     }
+
   </style>
 </head>
+
 <body>
   <div class="top-header d-flex justify-content-center align-items-center flex-column">
     <a href="../../main/main.html"><img src="../로고.png" alt="Logo" /></a>
