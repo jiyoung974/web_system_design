@@ -141,6 +141,52 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
+
+    @media (max-width: 576px) {
+  .container-custom {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .sidebar .btn {
+    width: 48%;
+    font-size: 0.9rem;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .carousel-wrapper {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .slide-img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
   </style>
 </head>
 <body>
