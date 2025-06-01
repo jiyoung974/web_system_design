@@ -67,7 +67,7 @@
     .news-card {
       flex: 0 0 auto;
       width: 100%;
-      max-width: 360px;  /* 아이폰 12 Pro 화면보다 살짝 작게 */
+      max-width: 360px;
       margin: 0 0.5rem;
       border: 1px solid #ccc;
       border-radius: 10px;
@@ -167,7 +167,7 @@
     function scrollNext() {
       const cardWidth = carousel.querySelector('.news-card')?.offsetWidth || 360;
       currentIndex = (currentIndex + 1) % totalCards;
-      carousel.scrollTo({ left: currentIndex * (cardWidth + 16), behavior: 'smooth' }); // 16은 margin 고려
+      carousel.scrollTo({ left: currentIndex * (cardWidth + 16), behavior: 'smooth' });
     }
 
     function scrollPrev() {
