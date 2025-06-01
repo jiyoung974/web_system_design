@@ -123,8 +123,9 @@
     }
 
     .emoji {
+      display: inline-block;
       font-size: 1.4rem;
-      margin-right: 10px;
+      width: 1.6rem;
     }
 
     .highlight {
@@ -154,6 +155,68 @@
       padding: 0 4px;
       font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+  .container-custom {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 2px solid #dee2e6;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .content {
+    padding-left: 0;
+  }
+
+  .hero-banner {
+    height: 200px;
+  }
+
+  .hero-text {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .info-box p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .line-break {
+    display: none;
+  }
+}
+
+.indent-line {
+  display: block;
+  margin-left: 1.6rem; 
+}
+
+@media (max-width: 768px) {
+  .indent-line {
+    display: inline;
+    margin-left: 0;
+  }
+}
+
+
   </style>
 </head>
 
@@ -212,7 +275,7 @@
       <div class="info-box">
         <p><span class="emoji">• </span><strong class="highlight">황사</strong>는 <span class="highlight-yellow">중국과 몽골의 사막
             및 황무지</span>에서 발생한 <span class="highlight-yellow">미세 입자</span>가 바람을 타고 우리나라로
-          이동해<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대기 오염을 유발하는 현상이다.</p>
+          이동해 <span class="indent-line">대기 오염을 유발하는 현상이다.</span></p>
         <p><span class="emoji">• </span><span class="highlight-yellow">규산염</span>, <span
             class="highlight-yellow">중금속</span> 등을 포함하며, 대기질 저하와 시야 감소의 원인이 된다.</p>
         <p><span class="emoji">• </span>황사는 주로 <span class="highlight-yellow">봄철(3~5월)</span>에 발생하며, 기상 조건과 <span
