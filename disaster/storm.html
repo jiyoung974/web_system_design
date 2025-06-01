@@ -154,6 +154,66 @@
       padding: 0 4px;
       font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+  .container-custom {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 2px solid #dee2e6;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .content {
+    padding-left: 0;
+  }
+
+  .hero-banner {
+    height: 200px;
+  }
+
+  .hero-text {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .info-box p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .line-break {
+    display: none;
+  }
+}
+
+.indent-line {
+  display: block;
+  margin-left: 1.4rem; 
+}
+
+@media (max-width: 768px) {
+  .indent-line {
+    display: inline;
+    margin-left: 0;
+  }
+}
   </style>
 </head>
 
@@ -218,10 +278,9 @@
         <p><span class="emoji">• </span>발생 단계(<span class="highlight-yellow">열대요란 → 열대저압부 → 태풍</span>)와 등급(<span
             class="highlight-yellow">약/중/강/매우 강</span>)에 따라 분류된다.</p>
         <p><span class="emoji">• </span>태풍 이름은 각국이 제출한 명칭으로 구성되며, <span class="highlight-yellow">큰 피해를 준 태풍</span>은 이름이
-          영구 퇴출되기도 한다.<br>
-          <span class="emoji"> </span>&nbsp;&nbsp;&nbsp;예를 들어 <span
+          영구 퇴출되기도 한다. <span class="indent-line">예를 들어 <span
             class="highlight-pink">'루사'</span>, <span class="highlight-pink">'매미'</span>, <span
-            class="highlight-pink">'하이엔'</span> 등은 피해가 커 더 이상 사용되지 않는다.
+            class="highlight-pink">'하이엔'</span> 등은 피해가 커 더 이상 사용되지 않는다.</span>
         </p>
       </div>
     </div>
