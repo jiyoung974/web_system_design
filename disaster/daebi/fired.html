@@ -1,303 +1,324 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>산불 대비 - Safety 365</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <style>
-        :root {
-            --primary-color: #003366;
-            --accent-color: #cc0000;
-            --bg-color: #f8f9fa;
-            --text-color: #212529;
-            --highlight: #e6f0ff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>산불 대비 - Safety 365</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #003366;
+      --accent-color: #cc0000;
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --highlight: #e6f0ff;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            font-family: 'Source Sans Pro', sans-serif;
-            margin: 0;
-            color: var(--text-color);
-        }
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Source Sans Pro', sans-serif;
+      margin: 0;
+      color: var(--text-color);
+    }
 
-        .top-header {
-            background-color: white;
-            padding: 1rem 0;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+    .top-header {
+      background-color: white;
+      padding: 1rem 0;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
 
-        .top-header img {
-            height: 60px;
-        }
+    .top-header img {
+      height: 60px;
+    }
 
-        .main-nav {
-            margin-top: 0.5rem;
-            background-color: var(--primary-color);
-        }
+    .main-nav {
+      margin-top: 0.5rem;
+      background-color: var(--primary-color);
+    }
 
-        .main-nav .nav-link {
-            color: white !important;
-            font-weight: 500;
-        }
+    .main-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
 
-        .main-nav .nav-link:hover {
-            text-decoration: underline;
-        }
+    .main-nav .nav-link:hover {
+      text-decoration: underline;
+    }
 
-        .hero-banner {
-            background-image: url('../fire1.png');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
+    .hero-banner {
+      background-image: url('../fire1.png');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
 
-        .hero-banner::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
 
-        .hero-text {
-            position: relative;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            z-index: 1;
-        }
+    .hero-text {
+      position: relative;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      z-index: 1;
+    }
 
-        .container-custom {
-            display: flex;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            max-width: 1200px;
-        }
+    .container-custom {
+      display: flex;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1200px;
+    }
 
-        .sidebar {
-            width: 220px;
-            padding-right: 1.5rem;
-            border-right: 2px solid #dee2e6;
-        }
+    .sidebar {
+      width: 220px;
+      padding-right: 1.5rem;
+      border-right: 2px solid #dee2e6;
+    }
 
-        .sidebar .btn {
-            margin-bottom: 1.5rem;
-            width: 100%;
-        }
+    .sidebar .btn {
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
 
-        .content {
-            flex-grow: 1;
-            padding-left: 2rem;
-            max-width: calc(100% - 220px - 2.5rem);
-        }
+    .content {
+      flex-grow: 1;
+      padding-left: 2rem;
+      max-width: calc(100% - 220px - 2.5rem);
+    }
 
-        h2 {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-top: 1rem;
-            margin-bottom: 3rem;
-        }
+    h2 {
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+    }
 
-        #checklist {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2.5rem;
-        }
+    #checklist {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 0 auto;
+    }
 
-        .checklist-item {
-            flex: 0 0 30%;
-            background-color: #f8f9fa;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-sizing: border-box;
-            max-width: calc(33.33% - 1rem);
-            text-align: center;
-        }
+    .checklist-item {
+      background-color: #f8f9fa;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-sizing: border-box;
+      text-align: center;
+      word-break: keep-all;
+    }
 
-        .checklist-item:hover {
-            transform: scale(1.02);
-        }
+    .checklist-item:hover {
+      transform: scale(1.02);
+    }
 
-        .checklist-item.checked {
-            background-color: #d4edda !important;
-            border-color: #28a745;
-        }
+    .checklist-item.checked {
+      background-color: #d4edda !important;
+      border-color: #28a745;
+    }
 
-        .checklist-item.checked i {
-            color: #28a745;
-        }
+    .checklist-item.checked i {
+      color: #28a745;
+    }
 
-        .checklist-item i {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
+    .checklist-item i {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
 
-        .checklist-item h5 {
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-        }
+    .checklist-item h5 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      word-break: keep-all;
+    }
 
-        .checklist-item p {
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  min-height: 2.5rem; /* ✅ 한 줄일 때도 공간 확보 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .checklist-item p {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      min-height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-break: keep-all;
+    }
 
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
 
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            margin-top: 4rem;
-        }
+    @media (max-width: 992px) {
+      #checklist {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-        @media (max-width: 992px) {
-            .checklist-item {
-                max-width: calc(50% - 1rem);
-            }
-        }
+    @media (max-width: 576px) {
+      .container-custom {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1rem;
+      }
 
-        @media (max-width: 576px) {
-            .checklist-item {
-                max-width: 100%;
-            }
-        }
-    </style>
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .sidebar .btn {
+        width: 48%;
+        font-size: 0.9rem;
+        margin-bottom: 0.1rem;
+      }
+
+      .content {
+        width: 100%;
+        padding: 0 1rem;
+        max-width: 100%;
+      }
+
+      #checklist {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h2 {
+        text-align: center;
+        white-space: nowrap;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="top-header d-flex justify-content-center align-items-center flex-column">
-        <a href="../../main/main.html"><img src="../로고.png" alt="Logo" /></a>
+  <div class="top-header d-flex justify-content-center align-items-center flex-column">
+    <a href="../../main/main.html"><img src="../로고.png" alt="Logo" /></a>
+  </div>
+
+  <nav class="navbar navbar-expand-lg main-nav px-4">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav w-100 d-flex justify-content-evenly">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="../earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="../dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="../fire.html">산불</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../map/map.html">대피소 안내</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../shopping/shopping.html">구호물품</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../news/news.html">뉴스 & 정보</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../quiz/quiz.htm">퀴즈</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank">기상청</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero-banner">
+    <div class="hero-text">산불 대비</div>
+  </div>
+
+  <div class="container-custom">
+    <div class="sidebar">
+      <a href="fired.html" class="btn btn-outline-primary">산불 대비</a>
+      <a href="../behavior/fire/fireb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
+      <a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/acd/frfireUserList.html?menuSeq=98" class="btn btn-outline-danger" target="_blank">실시간 정보</a>
     </div>
 
-    <nav class="navbar navbar-expand-lg main-nav px-4">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav w-100 d-flex justify-content-evenly">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../storm.html">태풍</a></li>
-                            <li><a class="dropdown-item" href="../earthquake.html">지진</a></li>
-                            <li><a class="dropdown-item" href="../dust.html">황사</a></li>
-                            <li><a class="dropdown-item" href="../fire.html">산불</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../../map/map.html">대피소 안내</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../shopping/shopping.html">구호물품</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../news/news.html">뉴스 & 정보</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../quiz/quiz.htm">퀴즈</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do"
-                            target="_blank">기상청</a></li>
-                </ul>
-            </div>
+    <div class="content">
+      <h2>산불 대비 체크리스트 ✅</h2>
+      <div id="checklist">
+        <div class="checklist-item" data-id="0" onclick="toggleCheck(this)">
+          <i class="fa-solid fa-smoking-ban"></i>
+          <h5>불씨 완전 소화하기</h5>
+          <p>야외 활동 후 담배꽁초나 불씨가<br>남지 않았는지 꼭 확인한다</p>
         </div>
-    </nav>
-
-    <div class="hero-banner">
-        <div class="hero-text">산불 대비</div>
+        <div class="checklist-item" data-id="1" onclick="toggleCheck(this)">
+          <i class="fa-solid fa-ban"></i>
+          <h5>쓰레기 소각 금지</h5>
+          <p>야외에서 쓰레기나 잡초를<br>태우지 않는다</p>
+        </div>
+        <div class="checklist-item" data-id="2" onclick="toggleCheck(this)">
+          <i class="fa-solid fa-fire-extinguisher"></i>
+          <h5>진화 도구 준비</h5>
+          <p>소화기, 물통, 모래를<br>집 주변에 준비한다</p>
+        </div>
+        <div class="checklist-item" data-id="3" onclick="toggleCheck(this)">
+          <i class="fa-solid fa-door-closed"></i>
+          <h5>창문 밀폐</h5>
+          <p>연기와 불씨 유입을 막기 위해<br>창문을 닫는다</p>
+        </div>
+        <div class="checklist-item" data-id="4" onclick="toggleCheck(this)">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+          <h5>연료·가스 차단 확인</h5>
+          <p>LPG, 도시가스, 연료통 등을<br>미리 점검하고 차단한다</p>
+        </div>
+        <div class="checklist-item" data-id="5" onclick="toggleCheck(this)">
+          <i class="fa-solid fa-volume-high"></i>
+          <h5>산불 경보 수신</h5>
+          <p>스마트폰과 방송 알림을 설정한다</p>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="container-custom">
-        <div class="sidebar">
-            <a href="fired.html" class="btn btn-outline-primary">산불 대비</a>
-            <a href="../behavior/fire/fireb.html" class="btn btn-outline-secondary">발생 시 행동 요령</a>
-            <a href="https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/acd/frfireUserList.html?menuSeq=98" class="btn btn-outline-danger"
-                target="_blank">실시간 정보</a>
-        </div>
+  <script>
+    document.querySelectorAll('.checklist-item').forEach(item => {
+      const id = item.getAttribute('data-id');
+      const checked = localStorage.getItem('fire_check_' + id);
+      if (checked === 'true') item.classList.add('checked');
+    });
 
-        <div class="content">
-            <h2>산불 대비 체크리스트 ✅</h2>
-            <div id="checklist">
-                <div class="checklist-item" data-id="0" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-smoking-ban"></i>
-                    <h5>불씨 완전 소화하기</h5>
-                    <p>야외 활동 후 담배꽁초나 불씨가<br>남지 않았는지 꼭 확인한다</p>
-                </div>
-                                                 
-                
-                <div class="checklist-item" data-id="1" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-ban"></i>
-                    <h5>쓰레기 소각 금지</h5>
-                    <p>야외에서 쓰레기나 잡초를<br>태우지 않는다</p>
-                </div>
-                
-                <div class="checklist-item" data-id="2" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-fire-extinguisher"></i>
-                    <h5>진화 도구 준비</h5>
-                    <p>소화기, 물통, 모래를<br>집 주변에 준비한다</p>
-                </div>
-                
-                <div class="checklist-item" data-id="3" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-door-closed"></i>
-                    <h5>창문 밀폐</h5>
-                    <p>연기와 불씨 유입을 막기 위해<br>창문을 닫는다</p>
-                </div>
-                
-                <div class="checklist-item" data-id="4" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-fire-flame-curved"></i>
-                    <h5>연료·가스 차단 확인</h5>
-                    <p>LPG, 도시가스, 연료통 등을<br>미리 점검하고 차단한다</p>
-                </div>
-                  
-                
-                <div class="checklist-item" data-id="5" onclick="toggleCheck(this)">
-                    <i class="fa-solid fa-volume-high"></i>
-                    <h5>산불 경보 수신</h5>
-                    <p>스마트폰과 방송 알림을 설정한다</p>
-                </div>
-                                    
-            </div>
-        </div>
-    </div>
+    function toggleCheck(element) {
+      const id = element.getAttribute('data-id');
+      element.classList.toggle('checked');
+      const isChecked = element.classList.contains('checked');
+      localStorage.setItem('fire_check_' + id, isChecked);
+    }
+  </script>
 
-    <script>
-        document.querySelectorAll('.checklist-item').forEach(item => {
-            const id = item.getAttribute('data-id');
-            const checked = localStorage.getItem('earthquake_check_' + id);
-            if (checked === 'true') item.classList.add('checked');
-        });
-
-        function toggleCheck(element) {
-            const id = element.getAttribute('data-id');
-            element.classList.toggle('checked');
-            const isChecked = element.classList.contains('checked');
-            localStorage.setItem('earthquake_check_' + id, isChecked);
-        }
-    </script>
-
-<footer>
+  <footer>
     <a href="../../main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a>&nbsp;&nbsp;|
-    &nbsp;&nbsp;<a href="../../main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보
-        처리방침</a>
+    &nbsp;&nbsp;<a href="../../main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
     &nbsp;&nbsp;|&nbsp;&nbsp;© 2025 Safety 365
-    </footer>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
