@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,7 +40,7 @@
     }
 
     .hero {
-      background-image: url('background.jpg');
+      background-image: url('/web_system_design/background.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -130,27 +129,6 @@
       text-align: center;
     }
 
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-body {
-      padding: 0.8rem;
-      font-size: 0.9rem;
-    }
-
-    .card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-text {
-      font-size: 0.85rem;
-      color: #888;
-    }
-
     footer {
       background-color: var(--primary-color);
       color: white;
@@ -178,41 +156,17 @@
       .label-text {
         font-size: 1rem;
       }
-      .card-img-top {
-        height: 120px;
-      }
-      .card-body {
-        padding: 0.6rem;
-        font-size: 0.85rem;
-      }
-      .card-title {
-        font-size: 0.95rem;
-      }
-      .card-text {
-        font-size: 0.8rem;
-      }
-      .navbar-nav {
-        flex-direction: column !important;
-        gap: 0.5rem;
-      }
-      .btn-accent {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-      }
     }
-</style>
+  </style>
 </head>
-
 <body>
 
-  <!-- Top Header -->
   <div class="top-header d-flex justify-content-center align-items-center flex-column">
     <a href="#" onclick="location.reload(); return false;">
-      <img src="로고.png" alt="Logo" style="height: 60px;" />
+      <img src="/web_system_design/로고.png" alt="Logo" style="height: 60px;" />
     </a>
   </div>
 
-  <!-- Main Nav -->
   <nav class="navbar navbar-expand-lg main-nav px-4">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -223,81 +177,75 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">재난정보</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../disaster/storm.html">태풍</a></li>
-              <li><a class="dropdown-item" href="../disaster/earthquake.html">지진</a></li>
-              <li><a class="dropdown-item" href="../disaster/dust.html">황사</a></li>
-              <li><a class="dropdown-item" href="../disaster/fire.html">산불</a></li>
+              <li><a class="dropdown-item" href="/web_system_design/disaster/storm.html">태풍</a></li>
+              <li><a class="dropdown-item" href="/web_system_design/disaster/earthquake.html">지진</a></li>
+              <li><a class="dropdown-item" href="/web_system_design/disaster/dust.html">황사</a></li>
+              <li><a class="dropdown-item" href="/web_system_design/disaster/fire.html">산불</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/map/map.html">대피소 안내</a></li>
-          <li class="nav-item"><a class="nav-link" href="/shopping/shopping.html">구호물품</a></li>
-          <li class="nav-item"><a class="nav-link" href="/news/news.html">뉴스 & 정보</a></li>
-          <li class="nav-item"><a class="nav-link" href="/quiz/quiz.html">퀴즈</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank"
-              rel="noopener noreferrer">기상청</a></li>
+          <li class="nav-item"><a class="nav-link" href="/web_system_design/map/map.html">대피소 안내</a></li>
+          <li class="nav-item"><a class="nav-link" href="/web_system_design/shopping/shopping.html">구호물품</a></li>
+          <li class="nav-item"><a class="nav-link" href="/web_system_design/news/news.html">뉴스 & 정보</a></li>
+          <li class="nav-item"><a class="nav-link" href="/web_system_design/quiz/quiz.html">퀴즈</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener noreferrer">기상청</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Banner -->
   <div class="hero">
     <div class="overlay-box">
       <h1>재난대비, 지금 준비하세요.</h1>
       <p>재난은 언제든 발생할 수 있습니다.<br>사전에 미리 대비하세요.</p>
-      <a href="/shopping/shopping.html" class="btn btn-accent fw-bold mt-2">구호물품 사러가기</a>
+      <a href="/web_system_design/shopping/shopping.html" class="btn btn-accent fw-bold mt-2">구호물품 사러가기</a>
     </div>
   </div>
 
-  <!-- 본문 영역 -->
   <div class="main-content">
     <div class="circle-container">
       <div class="circle-button-wrapper">
-        <a href="../disaster/storm.html">
+        <a href="/web_system_design/disaster/storm.html">
           <div class="circle-button">
-            <img src="태풍.jpg" alt="태풍" />
+            <img src="/web_system_design/태풍.jpg" alt="태풍" />
           </div>
         </a>
         <div class="label-text">태풍</div>
       </div>
       <div class="circle-button-wrapper">
-        <a href="../disaster/earthquake.html">
+        <a href="/web_system_design/disaster/earthquake.html">
           <div class="circle-button">
-            <img src="지진.jpg" alt="지진" />
+            <img src="/web_system_design/지진.jpg" alt="지진" />
           </div>
         </a>
         <div class="label-text">지진</div>
       </div>
       <div class="circle-button-wrapper">
-        <a href="../disaster/dust.html">
+        <a href="/web_system_design/disaster/dust.html">
           <div class="circle-button">
-            <img src="황사.jpg" alt="황사" />
+            <img src="/web_system_design/황사.jpg" alt="황사" />
           </div>
         </a>
         <div class="label-text">황사</div>
       </div>
       <div class="circle-button-wrapper">
-        <a href="../disaster/fire.html">
+        <a href="/web_system_design/disaster/fire.html">
           <div class="circle-button">
-            <img src="산불.jpg" alt="산불" />
+            <img src="/web_system_design/산불.jpg" alt="산불" />
           </div>
         </a>
         <div class="label-text">산불</div>
       </div>
     </div>
 
-    <!-- 뉴스 영역 -->
     <div class="container my-5">
       <h3 class="mb-4 text-center">실시간 뉴스</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4" id="news-container">
-      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4" id="news-container"></div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
-    <a href="number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a>&nbsp;&nbsp;|
-    &nbsp;&nbsp;<a href="Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
+    <a href="/web_system_design/number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a>&nbsp;&nbsp;|
+    &nbsp;&nbsp;<a href="/web_system_design/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
     &nbsp;&nbsp;|&nbsp;&nbsp;© 2025 Safety 365
   </footer>
 
@@ -337,7 +285,7 @@
           col.className = "col";
           col.innerHTML = `
             <div class="card h-100">
-              <img src="${news.urlToImage || '뉴스.jpg'}" class="card-img-top" alt="뉴스 이미지" />
+              <img src="${news.urlToImage || '/web_system_design/뉴스.jpg'}" class="card-img-top" alt="뉴스 이미지" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a href="${news.url}" target="_blank">${news.title}</a>
@@ -359,5 +307,4 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
