@@ -53,21 +53,28 @@
 
     .carousel-inner {
       display: flex;
-      overflow-x: scroll;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0 0.5rem;
       scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      width: 100%;
+      scroll-padding: 0.5rem;
     }
 
     .news-card {
-      min-width: 300px;
-      max-width: 300px;
-      margin-right: 1rem;
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 0.5rem;
       border: 1px solid #ccc;
       border-radius: 10px;
       background-color: white;
-      flex-shrink: 0;
-      scroll-snap-align: start;
+      scroll-snap-align: center;
+    }
+
+    @media (max-width: 400px) {
+      .news-card {
+        max-width: 90vw;
+      }
     }
 
     .news-card img {
