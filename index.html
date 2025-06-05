@@ -41,7 +41,7 @@
     }
 
     .hero {
-      background-image: url('/main/background.jpg');
+      background-image: url('main/background.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -163,56 +163,64 @@
       .hero {
         height: 300px;
       }
+
       .hero .overlay-box {
         padding: 1rem;
         max-width: 90%;
       }
+
       .hero h1 {
         font-size: 1.4rem;
         white-space: nowrap;
       }
+
       .circle-button {
         width: 100px;
         height: 100px;
       }
+
       .label-text {
         font-size: 1rem;
       }
+
       .card-img-top {
         height: 120px;
       }
+
       .card-body {
         padding: 0.6rem;
         font-size: 0.85rem;
       }
+
       .card-title {
         font-size: 0.95rem;
       }
+
       .card-text {
         font-size: 0.8rem;
       }
+
       .navbar-nav {
         flex-direction: column !important;
         gap: 0.5rem;
       }
+
       .btn-accent {
         font-size: 0.85rem;
         padding: 0.4rem 0.8rem;
       }
     }
-</style>
+  </style>
 </head>
 
 <body>
 
-  <!-- Top Header -->
   <div class="top-header d-flex justify-content-center align-items-center flex-column">
     <a href="#" onclick="location.reload(); return false;">
-      <img src="https://jiyoung974.github.io/web_system_design/main/로고.png" alt="Logo" style="height: 60px;" />
+      <img src="main/로고.png" alt="Logo" style="height: 60px;" />
     </a>
   </div>
 
-  <!-- Main Nav -->
   <nav class="navbar navbar-expand-lg main-nav px-4">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -240,7 +248,6 @@
     </div>
   </nav>
 
-  <!-- Hero Banner -->
   <div class="hero">
     <div class="overlay-box">
       <h1>재난대비, 지금 준비하세요.</h1>
@@ -249,13 +256,12 @@
     </div>
   </div>
 
-  <!-- 본문 영역 -->
   <div class="main-content">
     <div class="circle-container">
       <div class="circle-button-wrapper">
         <a href="../disaster/storm.html">
           <div class="circle-button">
-            <img src="/main/태풍.jpg" alt="태풍" />
+            <img src="main/태풍.jpg" alt="태풍" />
           </div>
         </a>
         <div class="label-text">태풍</div>
@@ -263,7 +269,7 @@
       <div class="circle-button-wrapper">
         <a href="../disaster/earthquake.html">
           <div class="circle-button">
-            <img src="/main/지진.jpg" alt="지진" />
+            <img src="main/지진.jpg" alt="지진" />
           </div>
         </a>
         <div class="label-text">지진</div>
@@ -271,7 +277,7 @@
       <div class="circle-button-wrapper">
         <a href="../disaster/dust.html">
           <div class="circle-button">
-            <img src="/main/황사.jpg" alt="황사" />
+            <img src="main/황사.jpg" alt="황사" />
           </div>
         </a>
         <div class="label-text">황사</div>
@@ -279,22 +285,19 @@
       <div class="circle-button-wrapper">
         <a href="../disaster/fire.html">
           <div class="circle-button">
-            <img src="/main/산불.jpg" alt="산불" />
+            <img src="main/산불.jpg" alt="산불" />
           </div>
         </a>
         <div class="label-text">산불</div>
       </div>
     </div>
 
-    <!-- 뉴스 영역 -->
     <div class="container my-5">
       <h3 class="mb-4 text-center">실시간 뉴스</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4" id="news-container">
-      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4" id="news-container"></div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <a href="/main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a>&nbsp;&nbsp;|
     &nbsp;&nbsp;<a href="/main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
@@ -337,7 +340,7 @@
           col.className = "col";
           col.innerHTML = `
             <div class="card h-100">
-              <img src="${news.urlToImage || '뉴스.jpg'}" class="card-img-top" alt="뉴스 이미지" />
+              <img src="${news.urlToImage || 'main/뉴스.jpg'}" class="card-img-top" alt="뉴스 이미지" />
               <div class="card-body">
                 <h5 class="card-title">
                   <a href="${news.url}" target="_blank">${news.title}</a>
