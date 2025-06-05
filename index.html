@@ -293,76 +293,60 @@
     </div>
 
     <div class="container my-5">
-      <h3 class="mb-4 text-center">실시간 뉴스</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4" id="news-container"></div>
+      <h3 class="mb-4 text-center">최신 재난 뉴스</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="main/뉴스.jpg" class="card-img-top" alt="SBS 뉴스 이미지" />
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008080530" target="_blank">
+                  내일 전국 강풍·황사…“외출 자제”
+                </a>
+              </h5>
+              <p class="card-text text-muted">SBS 뉴스</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="main/산불뉴스.jpg" class="card-img-top" alt="데일리대구경북 뉴스 이미지" />
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="http://www.dailydgnews.com/news/article.html?no=216645" target="_blank">
+                  경북도, 재난안전 특별 전시회 개최
+                </a>
+              </h5>
+              <p class="card-text text-muted">데일리대구경북</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="main/미세먼지뉴스.jpg" class="card-img-top" alt="조선일보 뉴스 이미지" />
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="https://www.chosun.com/national/transport-environment/2025/03/12/NISU7VVNRRGXZFIE27QK4C6MK4/"
+                  target="_blank">
+                  중국발 미세먼지, 몽골발 황사... 오늘 전국이 '회색빛 흙먼지'
+                </a>
+              </h5>
+              <p class="card-text text-muted">조선일보</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    </div>
 
   <footer>
-    <a href="/web_system_design/main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호 안내</a>&nbsp;&nbsp;|
-    &nbsp;&nbsp;<a href="/web_system_design/main/Personal_information.html" style="color: white; text-decoration:underline;">개인정보 처리방침</a>
+    <a href="/web_system_design/main/number.html" style="color: white; text-decoration:underline;">긴급 신고번호
+      안내</a>&nbsp;&nbsp;|
+    &nbsp;&nbsp;<a href="/web_system_design/main/Personal_information.html"
+      style="color: white; text-decoration:underline;">개인정보 처리방침</a>
     &nbsp;&nbsp;|&nbsp;&nbsp;© 2025 Safety 365
   </footer>
 
-  <script>
-    async function loadNewsFromAPI() {
-      const apiKey = 'f6afdec252d14f579cb1dd49597a9a44';
-      const query = '산불 OR 황사 OR 태풍 OR 지진 OR 폭우';
-
-      // 프록시 추가됨!
-      const proxy = 'https://cors-anywhere.herokuapp.com/';
-      const url = `${proxy}https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=ko&sortBy=publishedAt&apiKey=${apiKey}`;
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        const container = document.getElementById("news-container");
-        container.innerHTML = '';
-
-        const seenTitles = new Set();
-        const filtered = data.articles.filter(article => {
-          const title = article.title || '';
-          const desc = article.description || '';
-          const hasKeywordInTitle = /(폭우|태풍|산불|황사|지진)/.test(title);
-          const hasAuthorityInDesc = /(기상청|소방당국)/.test(desc);
-          const isDuplicate = seenTitles.has(title);
-          if (hasKeywordInTitle && hasAuthorityInDesc && !isDuplicate) {
-            seenTitles.add(title);
-            return true;
-          }
-          return false;
-        }).slice(0, 3);
-
-        if (filtered.length === 0) {
-          container.innerHTML = "<p>표시할 뉴스가 없습니다.</p>";
-          return;
-        }
-
-        filtered.forEach(news => {
-          const col = document.createElement("div");
-          col.className = "col";
-          col.innerHTML = `
-              <div class="card h-100">
-                <img src="${news.urlToImage || 'main/뉴스.jpg'}" class="card-img-top" alt="뉴스 이미지" />
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="${news.url}" target="_blank">${news.title}</a>
-                  </h5>
-                  <p class="card-text text-muted">${news.source.name}</p>
-                </div>
-              </div>
-            `;
-          container.appendChild(col);
-        });
-      } catch (error) {
-        console.error("뉴스 불러오기 실패:", error);
-        document.getElementById("news-container").innerHTML = "<p>뉴스를 불러오는 중 오류가 발생했습니다.</p>";
-      }
-    }
-
-    loadNewsFromAPI();
-  </script>
-  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
